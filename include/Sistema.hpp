@@ -4,11 +4,16 @@
 #include <string>
 #include <iostream>
 #include <map>
-
-
+#include "Usuario.hpp"
+#include "Servidores.hpp"
 // Sistema deve concentrar todas as operações do Concordo
 class Sistema {
-  	public:
+	
+	private:
+		std::vector<Usuario*> m_usuarios; //Um vetor contendo referências para todos os usuários criados usando o comando create-user.	  
+		std::vector<Servidores> m_servidores; // Um vetor com todos os servidores criados usando o comando create-server.
+		std::map<int, std::pair<unsigned int, unsigned int>> m_usuariosLogados; 
+	public:
 
 		/*! Encerra o funcionamento do Concordo, o programa termina ao executar este comando.
 			@return uma string com a mensagem "Saindo.."
@@ -159,6 +164,15 @@ class Sistema {
 				@return uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/
 		std::string list_messages(int id);
+
+		/**
+		 * @brief verifica se o email ja existe na base de usuarios.
+		 * 
+		 * @param Email email para analisar.
+		 * @return true se for valido.
+		 * @return false se não for.
+		 */
+		bool email_eh_unico(std::string Email);
 };
 
 #endif //Sistema_hpp
