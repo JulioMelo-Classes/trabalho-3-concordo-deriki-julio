@@ -92,7 +92,6 @@ class Sistema {
 			Retorna uma mensagem de erro em caso de falha ou uma mensagem de sucesso
 			caso contrário. Esse método atualiza a tabela Sistema::usuariosLogados com a informação do
 			servidor que o usuário com o id está conectado.
-			@todo implementar.
 			@param id  um id válido de algum usuário cadastrado e logado no sistema.
 			@param nome um nome válido de um servidor cadastrado no sistema.
 			@return "Entrou no servidor <nome>" em caso de sucesso ou uma mensagem de erro caso contrário.
@@ -105,7 +104,6 @@ class Sistema {
 				visualizando atualmente (usando o valor guardado em Sistema::usuariosLogados) este método
 				deve atualizar a tabela Sistema::usuariosLogados, sinalizando que o usuário não está mais
 				visualizando aquele servidor.
-				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@param nome um nome válido de um servidor cadastrado no sistema.
 				@return "Saiu do servidor <nome>" ou uma mensagem de erro em caso de falha.
@@ -114,7 +112,6 @@ class Sistema {
 
 		/*! Lista os participantes presentes no servidor que o usuário com o id passado está visualizando.
 				Retorna uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
-				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@return Uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/
@@ -210,6 +207,14 @@ class Sistema {
 		 * @return false se nao.
 		 */
 		bool server_nome_unico(std::string nome);
+		
+		/**
+		 * @brief retorna o nome do usuario com o id passado.
+		 * 
+		 * @param id identificador.
+		 * @return std::string 
+		 */
+		std::string user_name(int id);
 };
 
 #endif //Sistema_hpp

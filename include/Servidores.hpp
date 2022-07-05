@@ -1,3 +1,14 @@
+/**
+ * @file Servidores.hpp
+ * @author Deriki Pereira (derikipereira@outlook.com)
+ * @brief Header class Servidores
+ * @version 0.1
+ * @date 2022-07-05
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef Servidores_hpp
 #define Servidores_hpp
 
@@ -26,6 +37,27 @@ class Servidores{
          * @return std::string m_nome.
          */
         std::string get_nome();
+
+        /**
+         * @brief Get the id object
+         * 
+         * @return std::string 
+         */
+        int get_id();
+
+        /**
+         * @brief Get the dono object
+         * 
+         * @return Usuario* 
+         */
+        Usuario* get_dono();
+
+        /**
+         * @brief lista todos os m_canaisTexto no servidor
+         * 
+         */
+        void list_channels();
+
 };
 
 #endif //Servidores_hpp

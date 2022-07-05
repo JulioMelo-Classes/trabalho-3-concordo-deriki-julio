@@ -118,19 +118,60 @@ string Sistema::remove_server(int id, const string nome) {
 }
 
 string Sistema::enter_server(int id, const string nome) {
-	return "enter_server NÃO IMPLEMENTADO";
+	if(user_is_logged(id)){
+		for(auto server : this->m_servidores){
+			if(server->get_nome()==nome){
+				this->m_usuariosLogados[id] = {server->get_id(),0};
+				return "enter_server sucess.";
+			}
+		}
+	}
+	return "Error enter_server.";
 }
 
 string Sistema::leave_server(int id, const string nome) {
-	return "leave_server NÃO IMPLEMENTADO";
+	if(user_is_logged(id)){
+		for(auto server : this->m_servidores){
+			if(server->get_nome()==nome){
+				this->m_usuariosLogados[id] = {0,0};
+				return "leave_server sucess.";
+			}
+		}
+	}
+	return "Error leave_server.";
 }
 
 string Sistema::list_participants(int id) {
-	return "list_participants NÃO IMPLEMENTADO";
+	if(user_is_logged(id)){
+		int idServer = this->m_usuariosLogados[id].first;
+		for (auto server : this->m_servidores){
+			if(server->get_id()==idServer){
+				for(auto userLogado : this->m_usuariosLogados){
+					if(userLogado.second.first == idServer){
+						cout<<user_name(userLogado.first)<<endl;
+					}
+				}
+				return "";
+			}
+		}
+	}
+	return "Error list_participants";
 }
 
 string Sistema::list_channels(int id) {
-	return "list_channels NÃO IMPLEMENTADO";
+	if(user_is_logged(id)){
+		int serverID = this->m_usuariosLogados[id].first;
+		if(serverID!=0){
+			for(auto server : this->m_servidores){
+				if(server->get_id()==serverID){
+					server->list_channels();
+					return "";
+				}
+			}
+		}
+		else return "Error list_channels: usuario não entrou em nenhum servidor.";
+	}
+	return "Error list_channels: usuario não logado.";
 }
 
 string Sistema::create_channel(int id, const string nome) {
@@ -178,4 +219,13 @@ bool Sistema::user_is_logged(int id){
 		return true;
 	}
 	return false;
+}
+
+string Sistema::user_name(int id){
+	for(auto user : this->m_usuarios){
+		if(user->get_id()==id){
+			return user->get_nome();
+		}
+	}
+	return "Error user_name : usuario não encontrado.";
 }

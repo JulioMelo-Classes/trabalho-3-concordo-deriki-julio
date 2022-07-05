@@ -1,3 +1,14 @@
+/**
+ * @file Usuario.hpp
+ * @author Deriki Pereira (derikipereira@outlook.com)
+ * @brief Header class Usuario
+ * @version 0.1
+ * @date 2022-07-05
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef Usuario_hpp
 #define Usuario_hpp
 

@@ -19,6 +19,24 @@ using namespace std;
         this->m_dono = dono;
     }
 
-    std::string Servidores::get_nome(){
+    string Servidores::get_nome(){
         return this->m_nome;
+    }
+
+    int Servidores::get_id(){
+        return this->m_id;
+    }
+    Usuario* Servidores::get_dono(){
+        return this->m_dono;
+    }
+
+    void Servidores::list_channels(){
+        if(this->m_canaisTexto.size()==0){
+            cout<<"servidor sem canal de texto"<<endl;
+        }
+        else{
+            for(auto channel : this->m_canaisTexto){
+                cout<<channel->get_nome()<<endl;
+            }
+        }
     }
