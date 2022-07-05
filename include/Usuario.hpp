@@ -13,7 +13,6 @@ class Usuario{
         std::string m_senha;
         
     public :
-
         /**
          * @brief Construct a new Usuario object
          * 
@@ -21,7 +20,7 @@ class Usuario{
          * @param email email do novo usuario
          * @param senha senha do novo usuario
          */
-        Usuario(unsigned int id,string nome, string email, string senha);
+        Usuario(unsigned int id, string nome, string email, string senha);
 
         /**
          * @brief validador para objeto Usuario

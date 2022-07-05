@@ -10,8 +10,15 @@
 class Sistema {
 	
 	private:
+		
+		unsigned int nextIdUser = 1;
+		std::vector<unsigned int> idUserLivres;
+
+		unsigned int nextIdServer = 1;
+		std::vector<unsigned int> idServerLivres;
+		
 		std::vector<Usuario*> m_usuarios; //Um vetor contendo referências para todos os usuários criados usando o comando create-user.	  
-		std::vector<Servidores> m_servidores; // Um vetor com todos os servidores criados usando o comando create-server.
+		std::vector<Servidores*> m_servidores; // Um vetor com todos os servidores criados usando o comando create-server.
 		std::map<int, std::pair<unsigned int, unsigned int>> m_usuariosLogados; 
 	public:
 
@@ -30,6 +37,7 @@ class Sistema {
 
 		/*! Remove as informações do cadastro de um usuário do sistema. Só deve ser possível se o usuário não estiver logado,
 			demais especificidades deste método, veja o documento de especificação.
+			@todo falta implementar.
 			@param email o email do usuário, passado no comando login
 			@param senha a senha correspondente àquele usuário
 			@return uma string contendo uma mensagem de erro ou "Usuário <email> removido do sistema!"
@@ -73,6 +81,7 @@ class Sistema {
 	
 		/*! Remove um servidor da lista de servidores, retornando uma mensagem de sucesso ou de erro
 			em caso de falha.
+			@todo implementar.
 			@param id  um id válido de algum usuário cadastrado e logado no sistema.
 			@param nome um nome válido de um servidor cadastrado no sistema.
 			@return "Servidor <nome> removido com sucesso" ou uma mensagem de erro em caso de falha.
@@ -83,6 +92,7 @@ class Sistema {
 			Retorna uma mensagem de erro em caso de falha ou uma mensagem de sucesso
 			caso contrário. Esse método atualiza a tabela Sistema::usuariosLogados com a informação do
 			servidor que o usuário com o id está conectado.
+			@todo implementar.
 			@param id  um id válido de algum usuário cadastrado e logado no sistema.
 			@param nome um nome válido de um servidor cadastrado no sistema.
 			@return "Entrou no servidor <nome>" em caso de sucesso ou uma mensagem de erro caso contrário.
@@ -95,6 +105,7 @@ class Sistema {
 				visualizando atualmente (usando o valor guardado em Sistema::usuariosLogados) este método
 				deve atualizar a tabela Sistema::usuariosLogados, sinalizando que o usuário não está mais
 				visualizando aquele servidor.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@param nome um nome válido de um servidor cadastrado no sistema.
 				@return "Saiu do servidor <nome>" ou uma mensagem de erro em caso de falha.
@@ -103,6 +114,7 @@ class Sistema {
 
 		/*! Lista os participantes presentes no servidor que o usuário com o id passado está visualizando.
 				Retorna uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@return Uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/
@@ -110,6 +122,7 @@ class Sistema {
 
 		/*!	Lista os canais do servidor que o usuário com o id passado está vizualizando. Retorna uma
 				string vazia em caso de sucesso o uma mensagem de erro no caso de falha.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@return uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/
@@ -117,6 +130,7 @@ class Sistema {
 
 		/*! Cria um canal em um servidor com o nome passado. O canal criado é do tipo dado (voz ou texto)
 				de acordo com o comando create-channel. Retorna uma mensa
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema. 
 				@param o nome do novo canal, de acordo com o comando create-channel
 				@return "Canal <nome> criado!" ou uma mensagem de erro em caso de falha.
@@ -127,6 +141,7 @@ class Sistema {
 				em um canal o sistema deve atualizar a tabela Sistema::usuariosLogados com a informação de
 				que o usuário está vizualizando o canal em que entrou. Retorna uma mensagem de sucesso ou de
 				erro em caso de falha.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@param o nome do canal que deseja entrar,
 				@return "Usuário <email.do.usuario> entrou no canal <nome>" ou uma mensagem de
@@ -138,6 +153,7 @@ class Sistema {
 				Ao sair de um canal o sistema deve atualizar o attributo Sistema::usuariosLogados de 
 				forma que o usuário não esteja mais vizualizando qualquer canal. A função deve retornar 
 				mensagem de sucesso ou de erro em caso de falha
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 							 que o usuário está visualizando, de acordo com o atributo Sistema::usuariosLogados.
 				@return "Usuário <email.do.usuario> saiu no canal <nome>" ou uma mensagem de erro em caso de
@@ -146,6 +162,7 @@ class Sistema {
 		std::string leave_channel(int id);
 
 		/*! Remove um canal do sistema, se ele existir. Para maiores especificações veja o documento do trabalho
+			@todo implementar.
 			@param id um id válido de algum usuário cadastrado e logado no sistema. 
 			@param o nome do canal a ser removido
 			@return "Canal <nome> removido!" ou uma mensagem de erro em caso de falha.
@@ -153,6 +170,7 @@ class Sistema {
 		std::string remove_channel(int id, const std::string nome);
 		
 		/*! Envia uma mensagem no canal em que o usuáiro com id passado está visualizando.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@param mensagem a mensagem que deve ser enviada.
 				@return uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
@@ -160,6 +178,7 @@ class Sistema {
 		std::string send_message(int id, const std::string mensagem);
 		
 		/*! Lista as mensagem no canal que o usuário com id passado está visualizando.
+				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@return uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/
@@ -173,6 +192,24 @@ class Sistema {
 		 * @return false se não for.
 		 */
 		bool email_eh_unico(std::string Email);
+
+		/**
+		 * @brief verifica se o id pertence ao m_usuariosLogados
+		 * 
+		 * @param id identificador para analisar.
+		 * @return true se pertence.
+		 * @return false se não
+		 */
+		bool user_is_logged(int id);
+
+		/**
+		 * @brief verifica se ja existe um servidor com esse nome.
+		 * 
+		 * @param nome string para verificar.
+		 * @return true se for unico.
+		 * @return false se nao.
+		 */
+		bool server_nome_unico(std::string nome);
 };
 
 #endif //Sistema_hpp

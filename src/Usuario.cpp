@@ -12,8 +12,9 @@
 #include "Usuario.hpp"
 
 using namespace std;
+    
 
-    Usuario::Usuario(unsigned int id,string nome,string email,string senha){
+    Usuario::Usuario(unsigned int id ,string nome,string email,string senha){
         this->m_id = id;
         this->m_nome = nome;
         this->m_email = email;
