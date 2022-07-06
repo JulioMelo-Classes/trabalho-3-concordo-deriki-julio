@@ -13,7 +13,12 @@ set( APP_NAME "concordo" )
 add_executable( ${APP_NAME}
                 src/Concordo.cpp
                 src/Sistema.cpp 
-				src/Executor.cpp)
+				src/Executor.cpp
+                src/Usuario.cpp
+                src/Servidores.cpp
+                src/CanalTexto.cpp
+                src/Mensagem.cpp
+                )
 
 add_custom_target(
     teste_1

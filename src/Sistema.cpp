@@ -189,7 +189,10 @@ string Sistema::list_channels(int id) {
 }
 
 string Sistema::create_channel(int id, const string nome) {
-	return "create_channel NÃO IMPLEMENTADO";
+	if(user_is_logged(id)){
+		
+	}
+	return "Error create_channel: usuario não logado.";
 }
 
 string Sistema::remove_channel(int id, const string nome) {

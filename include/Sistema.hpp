@@ -118,7 +118,6 @@ class Sistema {
 
 		/*!	Lista os canais do servidor que o usuário com o id passado está vizualizando. Retorna uma
 				string vazia em caso de sucesso o uma mensagem de erro no caso de falha.
-				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema.
 				@return uma string vazia em caso de sucesso ou uma mensagem de erro em caso de falha.
 		*/

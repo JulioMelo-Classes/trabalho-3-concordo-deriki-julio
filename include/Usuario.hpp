@@ -31,7 +31,7 @@ class Usuario{
          * @param email email do novo usuario
          * @param senha senha do novo usuario
          */
-        Usuario(unsigned int id, string nome, string email, string senha);
+        Usuario(unsigned int id, std::string nome, std::string email, std::string senha);
 
         /**
          * @brief validador para objeto Usuario

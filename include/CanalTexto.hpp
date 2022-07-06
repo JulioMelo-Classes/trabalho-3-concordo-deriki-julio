@@ -23,9 +23,9 @@ class CanalTexto{
     private :
         
         unsigned int m_id;
-        string m_nome;
+        std::string m_nome;
         Usuario* m_dono;
-        vector<Mensagem*> m_mensagens; 
+        std::vector<Mensagem*> m_mensagens; 
 
     public :
 
