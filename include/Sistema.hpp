@@ -37,7 +37,6 @@ class Sistema {
 
 		/*! Remove as informações do cadastro de um usuário do sistema. Só deve ser possível se o usuário não estiver logado,
 			demais especificidades deste método, veja o documento de especificação.
-			@todo falta implementar.
 			@param email o email do usuário, passado no comando login
 			@param senha a senha correspondente àquele usuário
 			@return uma string contendo uma mensagem de erro ou "Usuário <email> removido do sistema!"
