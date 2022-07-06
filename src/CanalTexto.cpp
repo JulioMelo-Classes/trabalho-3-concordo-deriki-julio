@@ -21,6 +21,10 @@ using namespace std;
         this->m_nome = nome;
 
     }
+    
+    CanalTexto::~CanalTexto(){
+        for(auto msg : this->m_mensagens) delete msg;
+    }
 
     int CanalTexto::get_id(){
         return this->m_id;

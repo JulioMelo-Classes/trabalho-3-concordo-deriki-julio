@@ -213,6 +213,22 @@ class Sistema {
 		 * @return std::string 
 		 */
 		std::string user_name(int id);
+
+		/**
+		 * @brief encotra o usuario com o id passado no m_usuarios
+		 * 
+		 * @param id identificador
+		 * @return Usuario* retorna NULL se nao achar
+		 */
+		Usuario* find_user_by_id(int id);
+
+		/**
+		 * @brief encontra um objeto servidor de id passado no m_servidores.
+		 * 
+		 * @param id identificador
+		 * @return Servidores* 
+		 */
+		Servidores* find_server_by_id(int id);
 };
 
 #endif //Sistema_hpp

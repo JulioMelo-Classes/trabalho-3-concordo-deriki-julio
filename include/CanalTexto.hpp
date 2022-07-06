@@ -39,6 +39,12 @@ class CanalTexto{
         CanalTexto(int id, std::string nome, Usuario* dono);
 
         /**
+         * @brief Destroy the Canal Texto object
+         * 
+         */
+        ~CanalTexto();
+        
+        /**
          * @brief Get the nome object
          * 
          * @return std::string 

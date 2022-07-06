@@ -19,6 +19,10 @@ using namespace std;
         this->m_dono = dono;
     }
 
+    Servidores::~Servidores(){
+        for(auto ct : this->m_canaisTexto) delete ct;
+    }
+
     string Servidores::get_nome(){
         return this->m_nome;
     }
@@ -39,4 +43,22 @@ using namespace std;
                 cout<<channel->get_nome()<<endl;
             }
         }
+    }
+
+    void Servidores::create_channel(string nome, Usuario* dono){
+        
+        if((int)idCanalTextoLivres.size()==0){
+            
+            CanalTexto* ct = new CanalTexto(nextIdCanalTexto,nome,dono);
+            this->m_canaisTexto.push_back(ct);
+            nextIdCanalTexto++;
+        }
+        else{
+            CanalTexto* ct = new CanalTexto(idCanalTextoLivres[0],nome,dono);
+            this->m_canaisTexto.push_back(ct);
+            idCanalTextoLivres.erase(idCanalTextoLivres.begin());
+        }
+
+        
+        
     }
