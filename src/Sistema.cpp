@@ -41,21 +41,28 @@ string Sistema::create_user (const string email, const string senha, const strin
 }
 
 std::string Sistema::delete_user (const std::string email, const std::string senha){
+  int i;
+  i = 0;
     unsigned int id;
 	bool correto;
 	correto = false;
     for(auto u : m_usuarios){
         if(u->get_email() == email && u->get_senha() == senha){
             id = u->get_id();
-			correto = true;
 			if(user_is_logged(id) == false){
-				free(m_usuarios[id]);
+				delete(m_usuarios[i]);
+        			m_usuarios.erase(m_usuarios.begin()+i);
 				idUserLivres.push_back(id);
+        			correto = true;
 				return "Usuário <" + email + "> removido do sistema!";
 			}
+          else if(user_is_logged(id) == true){
+            return "Erro usuário <" + email + "> logado, deslogue para deletar o usuário";
+          }
         }
+      i++;
     }
-     if (correto = false){
+     if (correto == false){
 		return "Usuário não cadastrado!";
 	 }
 }
