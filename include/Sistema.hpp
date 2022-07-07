@@ -80,7 +80,6 @@ class Sistema {
 	
 		/*! Remove um servidor da lista de servidores, retornando uma mensagem de sucesso ou de erro
 			em caso de falha.
-			@todo implementar.
 			@param id  um id válido de algum usuário cadastrado e logado no sistema.
 			@param nome um nome válido de um servidor cadastrado no sistema.
 			@return "Servidor <nome> removido com sucesso" ou uma mensagem de erro em caso de falha.
