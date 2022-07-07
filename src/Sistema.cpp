@@ -50,7 +50,7 @@ std::string Sistema::delete_user (const std::string email, const std::string sen
         if(u->get_email() == email && u->get_senha() == senha){
             id = u->get_id();
 			if(user_is_logged(id) == false){
-				delete(m_usuarios[i]);
+				delete(u);
         			m_usuarios.erase(m_usuarios.begin()+i);
 				idUserLivres.push_back(id);
         			correto = true;
