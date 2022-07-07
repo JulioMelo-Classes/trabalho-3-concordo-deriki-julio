@@ -17,6 +17,7 @@ using namespace std;
         this->m_id = id;
         this->m_nome = nome;
         this->m_dono = dono;
+        this->m_participantes.push_back(dono);
     }
 
     Servidores::~Servidores(){
@@ -32,6 +33,11 @@ using namespace std;
     }
     Usuario* Servidores::get_dono(){
         return this->m_dono;
+    }
+
+    void Servidores::list_participants(){
+        for(auto participante : this->m_participantes)
+            cout<<participante->get_nome()<<endl;
     }
 
     void Servidores::list_channels(){
@@ -61,4 +67,32 @@ using namespace std;
 
         
         
+    }
+
+    bool Servidores::insert_participante(Usuario* participante){
+        if(find_participante(participante)==NULL){
+            this->m_participantes.push_back(participante);
+
+            return true;
+        }
+        return false;
+    
+    }
+    bool Servidores::remove_participante(Usuario* participante){
+        if(participante == this->m_dono){
+            return false;
+        }
+        for(int i=0 ; i<this->m_participantes.size(); i++){
+            if(this->m_participantes[i]==participante){
+                this->m_participantes.erase(this->m_participantes.begin()+i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    Usuario* Servidores::find_participante(Usuario* participante){
+        for(auto part : this->m_participantes) if(part == participante) return part;
+
+        return NULL;
     }

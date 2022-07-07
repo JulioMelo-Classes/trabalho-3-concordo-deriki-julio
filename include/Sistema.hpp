@@ -205,14 +205,6 @@ class Sistema {
 		 * @return false se nao.
 		 */
 		bool server_nome_unico(std::string nome);
-		
-		/**
-		 * @brief retorna o nome do usuario com o id passado.
-		 * 
-		 * @param id identificador.
-		 * @return std::string 
-		 */
-		std::string user_name(int id);
 
 		/**
 		 * @brief encotra o usuario com o id passado no m_usuarios
@@ -220,7 +212,7 @@ class Sistema {
 		 * @param id identificador
 		 * @return Usuario* retorna NULL se nao achar
 		 */
-		Usuario* find_user_by_id(int id);
+		Usuario* find_user(int id);
 
 		/**
 		 * @brief encontra um objeto servidor de id passado no m_servidores.
@@ -228,7 +220,22 @@ class Sistema {
 		 * @param id identificador
 		 * @return Servidores* 
 		 */
-		Servidores* find_server_by_id(int id);
+		Servidores* find_server(int id);
+
+		/**
+		 * @brief encontra um objeto servidor de nome passado no m_servidores.
+		 * 
+		 * @param nome nome do servidor passado.
+		 * @return Servidores* return NULL se nao encontra
+		 */
+		Servidores* find_server(std::string nome);
+
+		/**
+		 * @brief remove todos usuarios logados em m_usuariosLogados nesse servidor.
+		 * 
+		 * @param id identificador do servidor.
+		 */
+		void server_kick(int id);
 };
 
 #endif //Sistema_hpp

@@ -37,3 +37,10 @@ cmake --build . --target teste_1
 
 Veja que neste trabalho você precisa projetar e fornecer os testes. Tente iniciar de forma simples realizando testes de funcionalidades de acordo
 com o documento de especificação e depois realizar testes complexos que executam vários comandos em cadeia!
+
+## testes
+
+| Teste  | Descrição  |
+|--------|------------|
+| in1  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
+| in2  |  ***A1 :***<br>Se não estiver logado(assim que entra no sistema)  |

@@ -1,10 +1,22 @@
-   #aqui é um comentário =0
+# TESTES PARA USUARIO NÃO LOGADO
 
-#linhas vazias também são ignoradas como essas ^
-
-create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes 
-create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes
-create-user renan@imd.ufrn.br senha Renan
-create-user julio@imd.ufrn.br senha Julio
-login isaacfranco@imd.ufrn.br senhalegal
+disconnect 4
+create-server 6 Banana-in-Pyjamas
+create-server 5 Nao-Tem-Como
+list-servers 5
+create-server 7 Lords_Of_HellFire
+list-servers 6
+remove-server 7 Lords_Of_HellFire
+enter-server 6 Lords_Of_HellFire
+leave-server 6 Lords_Of_HellFire
+list-participants 7
+leave-server 6 Lords_Of_HellFire
+list-participants 4
+list-channels 5
+create-channel 5 passar na materia
+enter-channel 6 passar na materia
+leave-channel 6
+remove-channel 5 passar na materia
+send-message 6 arredonda minha nota de 6,2 para 10?
+list-messages 6
 quit

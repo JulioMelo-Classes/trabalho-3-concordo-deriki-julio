@@ -68,6 +68,11 @@ class Servidores{
         Usuario* get_dono();
 
         /**
+         * @brief lista os participantes desse servidor com cout.
+         */
+        void list_participants();
+
+        /**
          * @brief lista todos os m_canaisTexto no servidor
          * 
          */
@@ -78,6 +83,33 @@ class Servidores{
          * 
          */
         void create_channel(std::string nome, Usuario* dono);
+
+        /**
+         * @brief insere referencia de um objeto Usuario em m_participantes.
+         * 
+         * @param participante Referencia ao objeto iserido.
+         * @return true se for inserido.
+         * @return false Error se nao for inserido.
+         */
+        bool insert_participante(Usuario* participante);
+
+        /**
+         * @brief remove participante do vector m_participantes.
+         * 
+         * @param participante participante para ser removido.
+         * @return true se for removido.
+         * @return false se nao foi encontrado ou não pode ser removido.
+         */
+        bool remove_participante(Usuario* participante);
+
+        /**
+         * @brief encontra objeto Usuario no vector m_participantes.
+         * 
+         * @param participante objeto procurado no vector.
+         * @return Usuario* se achar, se nao NULL.
+         */
+        Usuario* find_participante(Usuario* participante);
+
 
 };
 
