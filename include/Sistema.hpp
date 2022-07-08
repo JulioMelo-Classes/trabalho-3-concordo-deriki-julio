@@ -206,13 +206,20 @@ class Sistema {
 		bool server_nome_unico(std::string nome);
 
 		/**
-		 * @brief encotra o usuario com o id passado no m_usuarios
+		 * @brief encontra o usuario com o id passado no m_usuarios
 		 * 
 		 * @param id identificador
 		 * @return Usuario* retorna NULL se nao achar
 		 */
 		Usuario* find_user(int id);
 
+		/**
+		 * @brief encontra o usuario com o email passado no m_usuarios.
+		 * 
+		 * @param email email para encontrar.
+		 * @return Usuario* returna NULL se não achar.
+		 */
+		Usuario* find_user(std::string email);
 		/**
 		 * @brief encontra um objeto servidor de id passado no m_servidores.
 		 * 

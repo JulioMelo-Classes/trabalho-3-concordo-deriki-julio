@@ -1,9 +1,37 @@
-create-user derikipereira@outlook.com 12arf45Dg Deriki Pereira
-create-user lordvecna357@hotlook.com 435234adfDg Vecna
-create-user julio.meirelles.700@ufrn.edu.br 4892l0fget Julio Meirelles
-create-user rogerio.autopecas@hotmail.com pecas1234 Rogerio pecas
-delete-user lordvecna357@hotlook.com 435234adfDg
-delete-user lordvecna357@hotlook.com 435234adfDg
-login julio.meirelles.700@ufrn.edu.br 4892l0fget
-delete-user julio.meirelles.700@ufrn.edu.br 4892l0fget
+#################################
+#         TESTES A1             #
+#                               #
+# A1.1 Parar o sistema          #
+# A1.2 Criar usuário            #
+# A1.3 Deletar um usuário       #
+# A1.4 Entrar no sistema        #
+#                               #
+#################################
+
+#################################
+# A1.2                          #
+#################################
+# SUCESS : CRIANDO USUARIOS VALIDOS
+create-user derikipereira@outlook.com Abc1234 Deriki Pereira
+create-user joao.paulo@hotmail.com Fdsra4321 Joao Paulo
+create-user lara.araujo@yahoo.com Lara1234 Lara araujo
+create-user betinhoaac@hotmail.com bebe5367 Carlos Alberto
+create-user fulano43@outlook.com gfgtge5433 Fulano
+create-user zeninguem21@gmail.com ze23421 Ze da Pedra
+
+# ERROR 1 : USUARIO JA EXISTENTE
+create-user lara.araujo@yahoo.com Lar4324 Lara
+create-user betinhoaac@hotmail.com beb537 Carlos
+create-user fulano43@outlook.com gfgtge5433 Fulano
+
+#################################
+# A1.3                          #
+#################################
+# SUCESS : DELETAR
+delete-user joao.paulo@hotmail.com Fdsra4321
+
+#################################
+# A1.1                          #
+#################################
+# SUCESS : PARAR 
 quit

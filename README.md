@@ -1,10 +1,9 @@
-# Base para a atividade 03 de LP1
+# Concordo.cpp
 
-Use esse esqueleto de classes para iniciar a terceira atividade. O documento de especificação detalhado encontra-se
-disponível no [google docs](https://docs.google.com/document/d/1s4JKwg8HbIkrsXSfakeI5a9RZs6YNnzpK_w2Jp4tbQY/edit?usp=sharing)
+Sistema chamado "Concordo" com recursos similares ao Discord, mas que vai funcionar somente em modo texto e sem recursos de rede. A ideia principal é simular o “backend” de um serviço com o discord, que, embora de forma simplificada, serve para dar uma boa ideia de como as coisas são feitas nesse nicho de aplicação.
 
-Existe um executor que faz a interpretação dos comandos e executa o método correto do sistema, seu trabalho aqui é implementar
-a classe Sistema e as demais classes necessárias para o funcionamento do Concordo.
+O documento de especificação detalhado
+[google docs](https://docs.google.com/document/d/1s4JKwg8HbIkrsXSfakeI5a9RZs6YNnzpK_w2Jp4tbQY/edit?usp=sharing)
 
 ## Para compilar
 
@@ -34,9 +33,6 @@ Após os passos em [Para compilar](#para-compilar)
 ```console
 cmake --build . --target teste_1
 ```
-
-Veja que neste trabalho você precisa projetar e fornecer os testes. Tente iniciar de forma simples realizando testes de funcionalidades de acordo
-com o documento de especificação e depois realizar testes complexos que executam vários comandos em cadeia!
 
 ## testes
 

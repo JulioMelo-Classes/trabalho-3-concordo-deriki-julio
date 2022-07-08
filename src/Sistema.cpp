@@ -68,17 +68,18 @@ std::string Sistema::delete_user (const std::string email, const std::string sen
 }
 
 string Sistema::login(const string email, const string senha) {
-	for(int i=0; i<this->m_usuarios.size();i++){
-		if(this->m_usuarios[i]->get_email()==email){
-			if(this->m_usuarios[i]->get_senha()==senha){
-				this->m_usuariosLogados[m_usuarios[i]->get_id()] = {0,0};
-				return "Logado como " + this->m_usuarios[i]->get_email();
+	Usuario* user = find_user(email);
+	if(user!=NULL){
+		if(!user_is_logged(user->get_id())){
+			if(user->get_senha()==senha){
+				this->m_usuariosLogados[user->get_id()] = {0,0};
 			}
-			else break;
+			else return "Error login: senha inválida.";
 		}
+		else return "Error login: Usuário já está logado.";
 	}
+	else return "Error login: Usuário não criado.";
 
-	return "Error login: Senha ou usuário inválidos!";
 }
 
 string Sistema::disconnect(int id) {
@@ -283,6 +284,13 @@ bool Sistema::user_is_logged(int id){
 Usuario* Sistema::find_user(int id){
 	
 	for(auto user : this->m_usuarios) if(user->get_id()==id) return user;
+
+	return NULL;
+}
+
+Usuario* Sistema::find_user(string email){
+	
+	for(auto user : this->m_usuarios) if(user->get_email()==email) return user;
 
 	return NULL;
 }
