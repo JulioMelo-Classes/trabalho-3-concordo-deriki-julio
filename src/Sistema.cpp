@@ -73,6 +73,7 @@ string Sistema::login(const string email, const string senha) {
 		if(!user_is_logged(user->get_id())){
 			if(user->get_senha()==senha){
 				this->m_usuariosLogados[user->get_id()] = {0,0};
+        return "Logado como " + user->get_email();
 			}
 			else return "Error login: senha inválida.";
 		}
@@ -119,8 +120,10 @@ string Sistema::create_server(int id, const string nome) {
 string Sistema::list_servers(int id) {
 	if(user_is_logged(id)){
 
-		for(auto server : this->m_servidores){
-			cout<<server->get_nome()<<endl;
+		for(int i = 0; i < m_servidoresLogados.size(); i++){
+			if(m_servidoresLogados.at(i).first == id){
+				cout << m_servidoresLogados.at(i).second << endl;
+			}
 		}
 
 		return "";
@@ -133,6 +136,9 @@ string Sistema::remove_server(int id, const string nome) {
 	if(user_is_logged(id)){
 		Usuario* dono = find_user(id);
 		Servidores* serverRemove = find_server(nome);
+    if(serverRemove == NULL){
+      return "Servidor " + nome + " não encontrado";
+    }
 		if(serverRemove->get_dono()==dono){
 			server_kick(serverRemove->get_id());
 			for(int i = 0; i < this->m_servidores.size();i++ ){
@@ -154,6 +160,22 @@ string Sistema::enter_server(int id, const string nome) {
 		Usuario* user = find_user(id);
 		Servidores* server = find_server(nome);
 		this->m_usuariosLogados[id] = {server->get_id(),0};
+
+    bool existe;
+    existe = false;
+    if(m_servidoresLogados.size() > 0){
+      for(int i = 0; i < m_servidoresLogados.size(); i++){
+        if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
+          existe = true;
+        }
+      }
+      if(existe == false){
+        m_servidoresLogados.push_back(make_pair(id, nome));
+      }
+    }else{
+      m_servidoresLogados.push_back(make_pair(id, nome));
+    }
+    
 		if(server->insert_participante(user)){
 			return "Entrou no servidor com sucesso, add participantes sucess";
 		}
@@ -163,15 +185,25 @@ string Sistema::enter_server(int id, const string nome) {
 }
 
 string Sistema::leave_server(int id, const string nome) {
-	if(user_is_logged(id)){
-		Usuario* user = find_user(id);
-		Servidores* server = find_server(nome);
+    if(user_is_logged(id)){
+        Usuario* user = find_user(id);
+        Servidores* server = find_server(nome);
 
-		if(server->remove_participante(user)) return "Saindo do servidor '"+server->get_nome()+"'";
-		else return "Você não está nesse servidor.";
-
-	}
-	return "Error leave_server: Usuário não logado.";
+        if(server->remove_participante(user)){
+      for(int i = 0; i < m_servidoresLogados.size(); i++){
+        if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
+          m_servidoresLogados.erase(m_servidoresLogados.begin()+i);
+        }
+      }
+      return "Saindo do servidor '"+server->get_nome()+"'";
+    }
+        else {
+      return "Você não está nesse servidor.";
+      }
+    }
+  else {
+    return "Error leave_server: Usuário não logado.";
+    }
 }
 
 string Sistema::list_participants(int id) {
