@@ -38,5 +38,5 @@ cmake --build . --target teste_1
 
 | Teste  | Descrição  |
 |--------|------------|
-| in1  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
-| in2  |  ***A1 :***<br>Se não estiver logado(assim que entra no sistema)  |
+| noLogged  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
+|   |  ***A1 :***<br>Se não estiver logado(assim que entra no sistema)  |

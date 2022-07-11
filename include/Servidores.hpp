@@ -79,10 +79,13 @@ class Servidores{
         void list_channels();
 
         /**
-         * @brief Create a channel object
+         * @brief Create a channel object.
          * 
+         * @param nome nome do canal.
+         * @param dono usuario dono.
+         * @return std::string resultado da criação.
          */
-        void create_channel(std::string nome, Usuario* dono);
+        std::string create_channel(std::string nome, Usuario* dono);
 
         /**
          * @brief insere referencia de um objeto Usuario em m_participantes.
@@ -110,7 +113,13 @@ class Servidores{
          */
         Usuario* find_participante(Usuario* participante);
 
-
+        /**
+         * @brief encontra referencia ao objeto CanalTexto no vector m_canaisTexto.
+         * 
+         * @param nome string no nome do objeto.
+         * @return CanalTexto* objeto NULL se não achar.
+         */
+        CanalTexto* find_channel(std::string nome);
 };
 
 #endif //Servidores_hpp
