@@ -42,7 +42,7 @@ using namespace std;
 
     void Servidores::list_channels(){
         if(this->m_canaisTexto.size()==0){
-            cout<<"servidor sem canal de texto"<<endl;
+            cout<<"servidor sem canal de texto."<<endl;
         }
         else{
             for(auto channel : this->m_canaisTexto){
@@ -51,19 +51,23 @@ using namespace std;
         }
     }
 
-    void Servidores::create_channel(string nome, Usuario* dono){
+    string Servidores::create_channel(string nome, Usuario* dono){
         
-        if((int)idCanalTextoLivres.size()==0){
-            
-            CanalTexto* ct = new CanalTexto(nextIdCanalTexto,nome,dono);
-            this->m_canaisTexto.push_back(ct);
-            nextIdCanalTexto++;
+        CanalTexto* ct = find_channel(nome);
+        if(ct != NULL){
+            if((int)idCanalTextoLivres.size()==0){
+                CanalTexto* ct = new CanalTexto(nextIdCanalTexto,nome,dono);
+                this->m_canaisTexto.push_back(ct);
+                nextIdCanalTexto++;
+            }
+            else{
+                CanalTexto* ct = new CanalTexto(idCanalTextoLivres[0],nome,dono);
+                this->m_canaisTexto.push_back(ct);
+                idCanalTextoLivres.erase(idCanalTextoLivres.begin());
+            }
         }
-        else{
-            CanalTexto* ct = new CanalTexto(idCanalTextoLivres[0],nome,dono);
-            this->m_canaisTexto.push_back(ct);
-            idCanalTextoLivres.erase(idCanalTextoLivres.begin());
-        }
+        else return "Error create_channel: Canal de texto " + nome + " já existe!";
+        
 
         
         
@@ -94,5 +98,11 @@ using namespace std;
     Usuario* Servidores::find_participante(Usuario* participante){
         for(auto part : this->m_participantes) if(part == participante) return part;
 
+        return NULL;
+    }
+
+    CanalTexto* Servidores::find_channel(string nome){
+        for(auto channel : this->m_canaisTexto) if(channel->get_nome()==nome) return channel;
+        
         return NULL;
     }

@@ -237,12 +237,9 @@ string Sistema::list_channels(int id) {
 	if(user_is_logged(id)){
 		int serverID = this->m_usuariosLogados[id].first;
 		if(serverID!=0){
-			for(auto server : this->m_servidores){
-				if(server->get_id()==serverID){
-					server->list_channels();
-					return "";
-				}
-			}
+			Servidores* server = find_server(serverID);
+			server->list_channels();
+			return "";
 		}
 		else return "Error list_channels: usuario não entrou em nenhum servidor.";
 	}
@@ -252,13 +249,11 @@ string Sistema::list_channels(int id) {
 string Sistema::create_channel(int id, const string nome) {
 	if(user_is_logged(id)){
 		int idServer = this->m_usuariosLogados[id].first;
-		for(auto server : this->m_servidores){
-			if(server->get_id()==idServer){
+		Servidores * server = find_server(idServer);
+		if(server!=NULL){
 				Usuario* dono = find_user(id);
-				server->create_channel(nome,dono);
-				return "sucess create_channel : canal criado.";
-			}
-		}
+				return server->create_channel(nome,dono);
+		}else return "Error create_channel: Usuário não está em um servidor.";
 	}
 	return "Error create_channel: Usuário não logado.";
 }
