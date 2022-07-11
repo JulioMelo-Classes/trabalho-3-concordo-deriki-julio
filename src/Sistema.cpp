@@ -185,11 +185,16 @@ string Sistema::enter_server(int id, const string nome) {
 }
 
 string Sistema::leave_server(int id, const string nome) {
+	bool existe;
+	existe = false;
     if(user_is_logged(id)){
         Usuario* user = find_user(id);
         Servidores* server = find_server(nome);
+      if(server == NULL){
+        return "O servidor " + nome + " não existe";
+      }
 
-        if(server->remove_participante(user)){
+    if(server->remove_participante(user)){
       for(int i = 0; i < m_servidoresLogados.size(); i++){
         if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
           m_servidoresLogados.erase(m_servidoresLogados.begin()+i);
@@ -197,10 +202,19 @@ string Sistema::leave_server(int id, const string nome) {
       }
       return "Saindo do servidor '"+server->get_nome()+"'";
     }
-        else {
-      return "Você não está nesse servidor.";
+      else{
+        for(int i = 0; i < m_servidoresLogados.size(); i++){
+      		if(m_servidoresLogados.at(i).first == id){
+      			existe = true;
+      		}
+	      }
+        if(existe == false){
+          return "Você não está em qualquer servidor";
+        } else {
+          return "Você não está nesse servidor.";
+        }
       }
-    }
+      }
   else {
     return "Error leave_server: Usuário não logado.";
     }
