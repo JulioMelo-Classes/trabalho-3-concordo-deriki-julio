@@ -120,6 +120,14 @@ class Servidores{
          * @return CanalTexto* objeto NULL se não achar.
          */
         CanalTexto* find_channel(std::string nome);
+
+        CanalTexto* find_channel(unsigned int id);
+
+        std::string remove_channel(CanalTexto* ct);
+
+        bool perm_remove_channel(Usuario* user,CanalTexto* channel);
+
+
 };
 
 #endif //Servidores_hpp

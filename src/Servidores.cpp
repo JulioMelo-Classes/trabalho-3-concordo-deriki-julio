@@ -54,7 +54,7 @@ using namespace std;
     string Servidores::create_channel(string nome, Usuario* dono){
         
         CanalTexto* ct = find_channel(nome);
-        if(ct != NULL){
+        if(ct != nullptr){
             if((int)idCanalTextoLivres.size()==0){
                 CanalTexto* ct = new CanalTexto(nextIdCanalTexto,nome,dono);
                 this->m_canaisTexto.push_back(ct);
@@ -74,7 +74,7 @@ using namespace std;
     }
 
     bool Servidores::insert_participante(Usuario* participante){
-        if(find_participante(participante)==NULL){
+        if(find_participante(participante)==nullptr){
             this->m_participantes.push_back(participante);
 
             return true;
@@ -98,11 +98,34 @@ using namespace std;
     Usuario* Servidores::find_participante(Usuario* participante){
         for(auto part : this->m_participantes) if(part == participante) return part;
 
-        return NULL;
+        return nullptr;
     }
 
     CanalTexto* Servidores::find_channel(string nome){
         for(auto channel : this->m_canaisTexto) if(channel->get_nome()==nome) return channel;
         
-        return NULL;
+        return nullptr;
+    }
+    CanalTexto* Servidores::find_channel(unsigned int id){
+        for(auto channel : this->m_canaisTexto) if(channel->get_id()==id) return channel;
+        
+        return nullptr;
+    }
+
+    string Servidores::remove_channel(CanalTexto* ct){
+        for(int i=0; i<this->m_canaisTexto.size();i++){
+            if(this->m_canaisTexto[i]==ct){
+                delete ct;
+                this->m_canaisTexto.erase(this->m_canaisTexto.begin()+i);
+                return "Canal de texto " + ct->get_nome() + " deletetado.";
+            }
+        }
+        return "Error remove_channel : canal nao encontrado.";
+    }
+
+    bool Servidores::perm_remove_channel(Usuario* user,CanalTexto* channel){
+        if(channel->get_dono()==user || this->m_dono == user){
+            return true;
+        }
+        else return false;
     }

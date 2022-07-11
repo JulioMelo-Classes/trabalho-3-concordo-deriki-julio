@@ -23,9 +23,12 @@ class CanalTexto{
     private :
         
         unsigned int m_id;
+
         std::string m_nome;
         Usuario* m_dono;
         std::vector<Mensagem*> m_mensagens; 
+        unsigned int nextIdMensagem = 1 ;
+        std::vector<unsigned int> idMensagemLivres;
 
     public :
 
@@ -64,6 +67,16 @@ class CanalTexto{
          * @return int 
          */
         int get_id();
+
+        /**
+         * @brief Create a message object
+         * 
+         * @param user 
+         * @param mensagem 
+         */
+        void create_message(Usuario* user,std::string mensagem);  
+
+        void list_messages();      
 };
 
 #endif //CanalTexto_hpp

@@ -125,7 +125,6 @@ class Sistema {
 
 		/*! Cria um canal em um servidor com o nome passado. O canal criado é do tipo dado (voz ou texto)
 				de acordo com o comando create-channel. Retorna uma mensa
-				@todo implementar.
 				@param id um id válido de algum usuário cadastrado e logado no sistema. 
 				@param o nome do novo canal, de acordo com o comando create-channel
 				@return "Canal <nome> criado!" ou uma mensagem de erro em caso de falha.
@@ -157,7 +156,6 @@ class Sistema {
 		std::string leave_channel(int id);
 
 		/*! Remove um canal do sistema, se ele existir. Para maiores especificações veja o documento do trabalho
-			@todo implementar.
 			@param id um id válido de algum usuário cadastrado e logado no sistema. 
 			@param o nome do canal a ser removido
 			@return "Canal <nome> removido!" ou uma mensagem de erro em caso de falha.
@@ -243,6 +241,14 @@ class Sistema {
 		 * @param id identificador do servidor.
 		 */
 		void server_kick(int id);
+
+		/**
+		 * @brief remove todos usuarios logados em m_usuariosLogados nesse canal de texto.
+		 * 
+		 * @param idServer identificador do servidor no qual o canal está.
+		 * @param idChannel identificador do canal para dar leave.
+		 */
+		void channel_kick(unsigned int idServer, unsigned int idChannel);
 };
 
 #endif //Sistema_hpp
