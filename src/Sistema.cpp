@@ -288,7 +288,7 @@ string Sistema::enter_channel(int id, const string nome) {
 			CanalTexto* ct=serverVisualizado->find_channel(nome);
 			if(ct!=nullptr){
 				this->m_usuariosLogados[id].second = ct->get_id();
-				return "Entrou no canal '" + nome +"'.";
+				return "Entrou no canal '" + nome +"'. id: " + to_string(ct->get_id());
 			}
 			else return "Canal '" +nome + "' não existe.";
 		}
@@ -309,27 +309,27 @@ string Sistema::leave_channel(int id) {
 
 string Sistema::send_message(int id, const string mensagem) {
 	if(user_is_logged(id)){
-		if(this->m_usuariosLogados[id].first != 0 && this->m_usuariosLogados[id].second != 0){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
 			Usuario* user = find_user(id);
 			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
-			ct->create_message(user,mensagem);
-		}
-		return "Error send_menssage: Usuário não está em nenhum canal.";
+			if(ct!=nullptr){
+				ct->create_message(user,mensagem);
+				return "Success: mensagem gravada.";
+			}
+			else return "Error send_menssage: Canal de texto não encontrado.";
 	}
-	return "Error send_message: Usuário não logado.";
+	else return "Error send_message: Usuário não logado.";
 }
 
 string Sistema::list_messages(int id) {
 	if(user_is_logged(id)){
-		if(this->m_usuariosLogados[id].first != 0 && this->m_usuariosLogados[id].second != 0){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
 			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
-			ct->list_messages();
-		}
-		return "Error send_menssage: Usuário não está em nenhum canal.";
+			if(ct!=nullptr)
+				ct->list_messages();
+			else return "Error list_messages: canal nao encontrado.";
 	}
-	return "Error list_messages: Usuário não logado.";
+	else return "Error list_messages: Usuário não logado.";
 }
 /* END COMANDOS */
 

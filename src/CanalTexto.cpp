@@ -63,7 +63,14 @@ using namespace std;
     }
 
     void CanalTexto::list_messages(){
-        for(auto msg : this->m_mensagens){
-            cout<<msg->get_enviadaPor()->get_nome()<<"<"<<msg->get_dataHora()<<">: "<<msg->get_conteudo()<<endl;
+        if(this->m_mensagens.size()==0){
+            cout<<"Canal de texto vazio."<<endl;
         }
+        else{
+            for(auto msg : this->m_mensagens){
+            cout<<msg->get_enviadaPor()->get_nome()<<"<"<<msg->get_dataHora()<<">: "<<msg->get_conteudo()<<endl;
+            }
+        }
+        
+        
     }

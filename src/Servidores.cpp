@@ -54,17 +54,11 @@ using namespace std;
     string Servidores::create_channel(string nome, Usuario* dono){
         
         CanalTexto* ct = find_channel(nome);
-        if(ct != nullptr){
-            if((int)idCanalTextoLivres.size()==0){
+        if(ct == nullptr){
                 CanalTexto* ct = new CanalTexto(nextIdCanalTexto,nome,dono);
                 this->m_canaisTexto.push_back(ct);
                 nextIdCanalTexto++;
-            }
-            else{
-                CanalTexto* ct = new CanalTexto(idCanalTextoLivres[0],nome,dono);
-                this->m_canaisTexto.push_back(ct);
-                idCanalTextoLivres.erase(idCanalTextoLivres.begin());
-            }
+                return "Canal "+ nome +" criado.";
         }
         else return "Error create_channel: Canal de texto " + nome + " já existe!";
         

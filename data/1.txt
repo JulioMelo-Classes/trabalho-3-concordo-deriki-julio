@@ -1,11 +1,6 @@
 create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
 create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
-create-user kubla_khan@aol.com 805aoPWh Kumbla
-create-user jake_gyllenhaal@zohomail.com 3jUV3JbV Jake
-create-user bradley_cooper@aol.com 8cIb0R9I Bradley
-create-user hammurabi@hotmail.com 3UhwB5VD Hammurabi
-create-user vladimir_putin@yandex.com 0SaoyMb0 Vladimir Putin
-create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
-create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
-create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
-
+login jim_carrey@gmail.com 4NokFuIZ
+create-server 1 server
+enter-server 1 server
+create-channel 1 geral
