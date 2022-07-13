@@ -63,3 +63,10 @@ using namespace std;
     unsigned int Usuario::get_id(){
         return this->m_id;
     }
+
+    void Usuario::deletado(){
+        this->m_id=0;
+        this->m_nome="Usuario removido";
+        this->m_email="";
+        this->m_senha="";
+    }

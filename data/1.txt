@@ -1,5 +1,3 @@
-# SUCESS
-
 create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
 create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
 create-user kubla_khan@aol.com 805aoPWh Kumbla
@@ -11,11 +9,3 @@ create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
 create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
 create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
 
-# 1 ERROR: email ja cadastrado
-
-create-user jake_gyllenhaal@zohomail.com 3jbV Jae
-create-user bradley_cooper@aol.com 8cI0R9I Brad
-create-user hammurabi@hotmail.com 3UhwBD Hammubi
-
-
-quit

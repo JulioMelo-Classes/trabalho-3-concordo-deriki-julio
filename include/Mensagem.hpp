@@ -26,14 +26,42 @@ class Mensagem{
 
     public :
 
+        /**
+         * @brief Construct a new Mensagem object
+         * 
+         * @param id identificador.
+         * @param dataHora string da data e hora da criação.
+         * @param enviadaPor dono da mensagem.
+         * @param conteudo conteudo da mensagem.
+         */
         Mensagem(int id, std::string dataHora, Usuario* enviadaPor, std::string conteudo);
 
+        /**
+         * @brief Get the id object
+         * 
+         * @return int 
+         */
         int get_id();
 
+        /**
+         * @brief Get the dataHora object
+         * 
+         * @return std::string 
+         */
         std::string get_dataHora();
 
+        /**
+         * @brief Get the enviadaPor object
+         * 
+         * @return Usuario* 
+         */
         Usuario* get_enviadaPor();
 
+        /**
+         * @brief Get the conteudo object
+         * 
+         * @return std::string 
+         */
         std::string get_conteudo();
 
 };

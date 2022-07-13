@@ -64,6 +64,6 @@ using namespace std;
 
     void CanalTexto::list_messages(){
         for(auto msg : this->m_mensagens){
-            cout<<msg->get_enviadaPor()<<"<"<<msg->get_dataHora()<<">: "<<msg->get_conteudo()<<endl;
+            cout<<msg->get_enviadaPor()->get_nome()<<"<"<<msg->get_dataHora()<<">: "<<msg->get_conteudo()<<endl;
         }
     }

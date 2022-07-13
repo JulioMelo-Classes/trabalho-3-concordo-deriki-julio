@@ -21,6 +21,8 @@ class Sistema {
 		std::vector<Servidores*> m_servidores; // Um vetor com todos os servidores criados usando o comando create-server.
 		std::map<int, std::pair<unsigned int, unsigned int>> m_usuariosLogados;
 		std::vector<std::pair<int, std::string>> m_servidoresLogados;
+
+		std::vector<Usuario*> usuariosDeletados;
 	public:
 
 		/*! Encerra o funcionamento do Concordo, o programa termina ao executar este comando.

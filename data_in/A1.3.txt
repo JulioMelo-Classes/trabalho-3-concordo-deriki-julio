@@ -1,0 +1,48 @@
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+create-user kubla_khan@aol.com 805aoPWh Kumbla
+create-user jake_gyllenhaal@zohomail.com 3jUV3JbV Jake
+create-user bradley_cooper@aol.com 8cIb0R9I Bradley
+create-user hammurabi@hotmail.com 3UhwB5VD Hammurabi
+create-user vladimir_putin@yandex.com 0SaoyMb0 Vladimir Putin
+create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
+create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
+create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
+
+#SUCESS
+
+delete-user vladimir_putin@yandex.com 0SaoyMb0
+
+
+#1 ERROR se o usuario não está na base
+
+delete-user nao_encontrado@hotmail.com senhafacil
+
+
+#2 ERROR senha invalida
+
+delete-user kubla_khan@aol.com senhaErrada
+
+
+#3 ERROR Usuario logado
+
+login jake_gyllenhaal@zohomail.com 3jUV3JbV
+delete-user jake_gyllenhaal@zohomail.com 3jUV3JbV
+disconnect 4
+
+#4 ERROR Mensagens anonimas
+
+login nelson_mandela@yandex.com 1mpuvWRm
+login kubla_khan@aol.com 805aoPWh
+create-server 8 server1
+enter-server 8 server1
+create-channel 8 geral
+enter-channel 8 geral
+enter-server 3 server1
+enter-channel 3 geral
+send-message 3 fala rapaziada!
+disconnect 3
+delete-user kubla_khan@aol.com 805aoPWh
+list-messages 8
+
+#5 ERROR PARA TESTAR

@@ -1,0 +1,14 @@
+Usuário Jim Carrey criado.
+Usuário Martin Freeman criado.
+Usuário Kumbla criado.
+Usuário Jake criado.
+Usuário Bradley criado.
+Usuário Hammurabi criado.
+Usuário Vladimir Putin criado.
+Usuário Nelson Mandela criado.
+Usuário Wil Wheaton criado.
+Usuário Katherine Heigl criado.
+Error create_user: Usuário já existe!
+Error create_user: Usuário já existe!
+Error create_user: Usuário já existe!
+Saindo...

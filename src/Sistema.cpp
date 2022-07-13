@@ -16,6 +16,10 @@ string Sistema::quit() {
 	
 	this->m_usuarios.clear();
 
+	for(auto userDeletado : this->usuariosDeletados) delete userDeletado;
+
+	this->usuariosDeletados.clear();
+
   return "Saindo...";
 }
 
@@ -34,37 +38,31 @@ string Sistema::create_user (const string email, const string senha, const strin
 				this->m_usuarios.push_back(p);
 				this->idUserLivres.erase(idUserLivres.begin());
 			}
-			return "Usuário criado.";
+			return "Usuário "+ nome +" criado.";
 		}
 		else return "Error create_user: Usuário já existe!";
 	
 }
 
 std::string Sistema::delete_user (const std::string email, const std::string senha){
-  int i;
-  i = 0;
-    unsigned int id;
-	bool correto;
-	correto = false;
-    for(auto u : m_usuarios){
-        if(u->get_email() == email && u->get_senha() == senha){
-            id = u->get_id();
-			if(user_is_logged(id) == false){
-				delete(u);
-        			m_usuarios.erase(m_usuarios.begin()+i);
-				idUserLivres.push_back(id);
-        			correto = true;
-				return "Usuário <" + email + "> removido do sistema!";
+	Usuario* user = find_user(email);
+	if(user!=nullptr){
+		if(user->get_senha()==senha){
+			if(!user_is_logged(user->get_id())){
+				for(int i=0;i<(int)this->m_usuarios.size();i++){
+					if(this->m_usuarios[i]==user){
+						this->usuariosDeletados.push_back(user);
+						this->m_usuarios.erase(this->m_usuarios.begin()+i);
+						user->deletado();
+						return "Usuário " + email + " removido";
+					}
+				}
 			}
-          else if(user_is_logged(id) == true){
-            return "Erro usuário <" + email + "> logado, deslogue para deletar o usuário";
-          }
-        }
-      i++;
-    }
-     if (correto == false){
-		return "Usuário não cadastrado!";
-	 }
+			else return "Error delete_user: Usuario está logado.";
+		}
+		else return "Error delete_user: Senha incorreta.";
+	}
+	else return "Error delete_user: Usuário não encontrado.";
 }
 
 string Sistema::login(const string email, const string senha) {
@@ -86,11 +84,8 @@ string Sistema::login(const string email, const string senha) {
 string Sistema::disconnect(int id) {
 	if(user_is_logged(id)){
 		this->m_usuariosLogados.erase(id);
-		for(auto user : this->m_usuarios){
-			if(user->get_id()==id){
-				return "Usuário " + user->get_email() + " desconectado!";
-			}
-		}
+		Usuario* user = find_user(id);
+		return "Usuário " + user->get_email() + " desconectado!";
 	}
 	return "Error disconnect: Usuário não logado.";
 }

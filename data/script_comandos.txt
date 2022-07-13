@@ -1,75 +1,48 @@
-   #aqui é um comentário =0
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+create-user kubla_khan@aol.com 805aoPWh Kumbla
+create-user jake_gyllenhaal@zohomail.com 3jUV3JbV Jake
+create-user bradley_cooper@aol.com 8cIb0R9I Bradley
+create-user hammurabi@hotmail.com 3UhwB5VD Hammurabi
+create-user vladimir_putin@yandex.com 0SaoyMb0 Vladimir Putin
+create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
+create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
+create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
 
-#linhas vazias também são ignoradas como essas ^
-create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes 
-create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes
-create-user renan@imd.ufrn.br senha Renan
-create-user julio@imd.ufrn.br senha Julio
-login isaacfranco@imd.ufrn.br senhalegal
+#SUCESS
 
-# teste de disconnect
-disconnect 0
-disconnect 1
-login isaacfranco@imd.ufrn.br SENHA_ERRADA
-login isaacfranco@imd.ufrn.br senhalegal
-login julio@imd.ufrn.br senha
-create-server 0 servidor-legal
-set-server-desc 0 servidor-legal Um servidor muito banaca e coisa e tal
-create-server 0 servidor-ruim
-set-server-desc 0 servidor-ruim Um servidor lixo total
-set-server-invite-code 0 servidor-legal 123
-set-server-invite-code 0 servidor-legal 456
-login renan@imd.ufrn.br senha Renan
-set-server-invite-code 1 servidor-legal 789
-login isaacfranco@imd.ufrn.br senhalegal
-set-server-invite-code 0 servidor-legal 321
-set-server-invite-code 0 servidor-legal
-set-server-invite-code 0 servidor-inexistente 123
-set-server-invite-code 0 servidor-inexistente
-list-servers 0
+delete-user vladimir_putin@yandex.com 0SaoyMb0
 
-enter-server 0 servidor-legal
-enter-server 1 servidor-legal
-create-channel 0 CANAL3
 
-list-channels 0
-enter-channel 0 CANAL3
-enter-channel 1 CANAL3
-send-message 0 oiii
-send-message 1 tudo bem?
-send-message 0 Adeus!
-send-message 1 blz!
-list-messages 0
-disconnect 0
-enter-channel 1 CANAL2
-send-message 1 Oi pessoal do Canal 2!
-list-messages 1
+#1 ERROR se o usuario não está na base
 
-login isaacfranco@imd.ufrn.br senhalegal
-list-servers 0
-remove-server 0 servidor-inexistente
-remove-server 0 servidor-legal
-list-servers 0
-disconnect 0
-remove-server 0 servidor-ruim
-login isaacfranco@imd.ufrn.br senhalegal
-remove-server 0 servidor-ruim
-create-server 0 servidor-bacana
-create-server 0 servidor-fuderoso
-list-servers 0
-enter-server 0 servidor-bacana
-leave-server 0 servidor-bacana
-list-servers 0
-login isaacfranco@imd.ufrn.br senhalegal
-remove-server 0 servidor-bacana
-enter-server 0 servidor-bacana
-list-participants 0
-login renan@imd.ufrn.br senha
-create-server 1 servidor-sinistro
-enter-server 1 servidor-sinistro
-login julio@imd.ufrn.br senha
-enter-server 2 servidor-sinistro
-login isaacfranco@imd.ufrn.br senhalegal
-enter-server 0 servidor-sinistro
-list-participants 0
+delete-user nao_encontrado@hotmail.com senhafacil
+
+
+#2 ERROR senha invalida
+
+delete-user kubla_khan@aol.com senhaErrada
+
+
+#3 ERROR Usuario logado
+
+login jake_gyllenhaal@zohomail.com 3jUV3JbV
+delete-user jake_gyllenhaal@zohomail.com 3jUV3JbV
+disconnect 4
+
+#4 ERROR Mensagens anonimas
+
+login nelson_mandela@yandex.com 1mpuvWRm
+login kubla_khan@aol.com 805aoPWh
+create-server 8 server1
+enter-server 8 server1
+create-channel 8 geral
+enter-channel 8 geral
+enter-server 3 server1
+enter-channel 3 geral
+send-message 3 fala rapaziada!
+disconnect 3
+delete-user kubla_khan@aol.com 805aoPWh
+list-messages 8
+
 quit

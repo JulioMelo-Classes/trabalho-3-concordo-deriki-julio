@@ -76,6 +76,10 @@ class CanalTexto{
          */
         void create_message(Usuario* user,std::string mensagem);  
 
+        /**
+         * @brief lista todas as mensagens desse canal de texto.
+         * 
+         */
         void list_messages();      
 };
 

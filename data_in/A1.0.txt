@@ -1,4 +1,4 @@
-# TESTES PARA USUARIO NÃO LOGADO
+# TESTES A1.0 PARA USUARIO NÃO LOGADO
 
 disconnect 4
 create-server 6 Banana-in-Pyjamas

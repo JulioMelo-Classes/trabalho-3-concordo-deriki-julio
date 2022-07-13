@@ -69,6 +69,12 @@ class Usuario{
          */
         unsigned int get_id();
 
+        /**
+         * @brief atualizando as informações do usuario para deletado.
+         * 
+         */
+        void deletado();
+
 };
 
 #endif //Usuario_hpp
