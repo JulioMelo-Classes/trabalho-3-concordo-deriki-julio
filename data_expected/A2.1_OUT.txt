@@ -1,0 +1,9 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+Usuário jim_carrey@gmail.com desconectado!
+Usuário martin_freeman@gmail.com desconectado!
+Error disconnect: Usuário não logado.
+Error disconnect: Usuário não logado.
+Saindo...
