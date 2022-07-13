@@ -1,0 +1,19 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+servidor servidor criado
+servidor servidor2 criado
+servidor servidor3 criado
+servidor servidor4 criado
+Sucess remove_server: Server removido.
+Sucess remove_server: Server removido.
+Usuário Fulano criado.
+Logado como email@email.com
+servidor teste criado
+Usuário email@email.com desconectado!
+Error remove_server: Usuário não logado.
+Error remove_server: Usuário não autorizado.
+Error remove_server: Usuário não autorizado.
+Servidor trabalho não encontrado
+Saindo...
