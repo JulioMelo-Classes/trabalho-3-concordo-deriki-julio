@@ -97,6 +97,7 @@ string Sistema::create_server(int id, const string nome) {
 			Usuario* dono = find_user(id);
 			idServer = this->nextIdServer;
 			Servidores* s = new Servidores(idServer,dono,nome);
+      this->m_servidoresLogados.push_back(make_pair(id, nome));
 			this->m_servidores.push_back(s);
 			this->nextIdServer++;
 			return "servidor " + nome + " criado";
@@ -106,6 +107,7 @@ string Sistema::create_server(int id, const string nome) {
 			this->idServerLivres.erase(this->idServerLivres.begin());
 			Usuario* dono = find_user(id);
 			Servidores* s = new Servidores(idServer,dono,nome);
+      this->m_servidoresLogados.push_back(make_pair(id, nome));
 			this->m_servidores.push_back(s);
 			return "servidor " + nome + " criado";
 		}
@@ -155,6 +157,9 @@ string Sistema::enter_server(int id, const string nome) {
 	if(user_is_logged(id)){
 		Usuario* user = find_user(id);
 		Servidores* server = find_server(nome);
+    if(server == nullptr){
+      return "O servidor " + nome + " não existe";
+    }
 		this->m_usuariosLogados[id] = {server->get_id(),0};
 
     bool existe;
