@@ -27,6 +27,30 @@ cd build
 ./concordo < ../data/script_comandos.txt
 ```
 
+## Lista de comandos
+
+| **Comando**     |**Argumentos**                 | **Descrição**                  |
+|:----------------|:-----------------------------:|-------------------------------:|
+|quit             | -                             |Parar o sistema.                |
+|create-user      | "email" "senha" "nome"        |Criar usuário.                  |
+|delete-user      | "email" "senha"               |Deletar um usuario.             |
+|login            | "email" "senha"               |Entrar no sistema.              |
+|disconnect       | "id usuario"                  |Desconectar do Concordo.        |
+|create-server    | "id usuario" "nome do server" |Criar Servidor.                 |
+|list-servers     | "id usuario"                  |Listar servers que tem o id.    |
+|remove-server    | "id usuario" "nome do server" |Remover servidor.               |
+|enter-server     | "id usuario" "nome do server" |Entrar em um servidor.          |
+|leave-server     | "id usuario" "nome do server" |Sair de um servidor.            |
+|list-participants| "id usuario"                  |Listar pessoas no servidor.     |
+|list-channels    | "id usuario"                  |Listar canais do servidor.      |
+|create-channel   | "id usuario" "nome do canal"  |Criar um canal no servidor.     |
+|enter-channel    | "id usuario" "nome do canal"  |Entrar em um canal do servidor. |
+|leave-channel    | "id usuario"                  |Sair do canal atual.            |
+|remove-channel   | "id usuario" "nome do canal"  |Remover um canal no servidor.   |
+|send-message     | "id usuario" "mensagem"       |Enviar mensagem para o canal.   |
+|list-messages    | "id usuario"                  |Visualizar mensagens do canal.  |
+
+
 ## Executanto testes
 
 Após os passos em [Para compilar](#para-compilar)
@@ -36,7 +60,8 @@ cmake --build . --target teste_1
 
 ## testes
 
-| Teste  | Descrição  |
+| **Teste**  | **Descrição**  |
 |--------|------------|
-| noLogged  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
-|   |  ***A1 :***<br>Se não estiver logado(assim que entra no sistema)  |
+| A1.0  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
+| A1.1  |   ***Parar o sistema:*** <br>comando quit  |
+| A1.2  | ***Criar usuário: comando create-user <email> <senha_sem_espaços> <nome com espaços>***<br> 
