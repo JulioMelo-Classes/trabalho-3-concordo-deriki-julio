@@ -1,0 +1,31 @@
+# SUCESS
+
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+login jim_carrey@gmail.com 4NokFuIZ
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+login martin_freeman@gmail.com 8DcXQq8D
+create-server 1 servidor
+create-server 2 servidor2
+create-server 1 servidor3
+create-server 2 servidor4
+remove-server 1 servidor3
+remove-server 2 servidor4
+create-user email@email.com senha Fulano
+login email@email.com senha
+create-server 3 teste
+disconnect 3
+
+# 1 ERROR: usuario nao logado
+
+remove-server 3 teste
+
+# 2 ERROR: usuario nao é dono
+
+remove-server 2 servidor
+remove-server 1 servidor2
+
+# 2 ERROR: servidor nao existe
+
+remove-server 1 trabalho
+
+quit
