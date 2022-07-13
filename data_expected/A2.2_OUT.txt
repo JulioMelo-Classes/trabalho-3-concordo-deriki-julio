@@ -1,0 +1,9 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+servidor servidor criado
+servidor servidor2 criado
+Error create_server: nome existente ou Usuário não logado.
+Error create_server: nome existente ou Usuário não logado.
+Saindo...
