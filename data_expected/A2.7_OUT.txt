@@ -1,0 +1,16 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+Usuário Fulano criado.
+Logado como email@email.com
+servidor servidor criado
+servidor servidor2 criado
+Entrou no servidor com sucesso, add participantes sucess
+Entrou no servidor com sucesso, add participantes sucess
+Jim Carrey
+Martin Freeman
+Fulano
+Entrou no servidor com sucesso.
+Martin Freeman
+Saindo...
