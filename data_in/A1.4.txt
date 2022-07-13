@@ -9,28 +9,18 @@ create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
 create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
 create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
 
-#SUCESS
+#SUCCESS 
+login kubla_khan@aol.com 805aoPWh
+login bradley_cooper@aol.com 8cIb0R9I
 
-delete-user vladimir_putin@yandex.com 0SaoyMb0
+#1 Error: usuario nao criado
+login naoencontrado@hotmail.com qualquersenha
 
+#2 Error: usuario ja logado
+login kubla_khan@aol.com 805aoPWh
 
-#1 ERROR se o usuario não está na base
+#3 Error: senha invalida
+login wil_wheaton@outlook.com senhaErrada
 
-delete-user nao_encontrado@hotmail.com senhafacil
-
-
-#2 ERROR senha invalida
-
-delete-user kubla_khan@aol.com senhaErrada
-
-
-#3 ERROR Usuario logado
-
-login jake_gyllenhaal@zohomail.com 3jUV3JbV
-delete-user jake_gyllenhaal@zohomail.com 3jUV3JbV
-disconnect 4
-
+#fechar test
 quit
-#########
-#OBS... ERROS PARA USUARIOS DELETADOS E SUAS MESSAGES, CANAIS E SERVIDORES FICAREM ANONIMOS AINDA N IMPLEMENTADO... 
-#########

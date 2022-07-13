@@ -54,7 +54,7 @@ std::string Sistema::delete_user (const std::string email, const std::string sen
 						this->usuariosDeletados.push_back(user);
 						this->m_usuarios.erase(this->m_usuarios.begin()+i);
 						user->deletado();
-						return "Usuário " + email + " removido";
+						return "Usuário " + email + " removido.";
 					}
 				}
 			}

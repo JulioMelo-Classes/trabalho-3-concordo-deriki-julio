@@ -8,10 +8,9 @@ Usuário Vladimir Putin criado.
 Usuário Nelson Mandela criado.
 Usuário Wil Wheaton criado.
 Usuário Katherine Heigl criado.
-Usuário vladimir_putin@yandex.com removido.
-Error delete_user: Usuário não encontrado.
-Error delete_user: Senha incorreta.
-Logado como jake_gyllenhaal@zohomail.com
-Error delete_user: Usuario está logado.
-Usuário jake_gyllenhaal@zohomail.com desconectado!
+Logado como kubla_khan@aol.com
+Logado como bradley_cooper@aol.com
+Error login: Usuário não criado.
+Error login: Usuário já está logado.
+Error login: senha inválida.
 Saindo...
