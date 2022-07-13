@@ -1,0 +1,15 @@
+# SUCESS
+
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+login jim_carrey@gmail.com 4NokFuIZ
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+login martin_freeman@gmail.com 8DcXQq8D
+disconnect 1
+disconnect 2
+# 1 ERROR: usuario nao logado
+
+disconnect 1
+disconnect 2
+
+
+quit
