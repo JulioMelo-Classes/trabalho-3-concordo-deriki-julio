@@ -1,0 +1,24 @@
+# SUCESS
+
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+login jim_carrey@gmail.com 4NokFuIZ
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+login martin_freeman@gmail.com 8DcXQq8D
+create-server 1 servidor
+create-server 2 servidor2
+enter-server 1 servidor2
+enter-server 2 servidor
+leave-server 1 servidor2
+leave-server 2 servidor
+create-user email@email.com senha Fulano
+login email@email.com senha
+
+# 1 ERROR: usuario nao esta em nenhum servidor
+
+leave-server 3 servidor
+
+# 2 ERROR: servidor nao existe
+
+leave-server 2 servidorimaginario
+
+quit
