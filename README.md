@@ -64,4 +64,11 @@ cmake --build . --target teste_1
 |--------|------------|
 | A1.0  |  ***Usuario invalido se não logado :***<br>para commandos que necessita de login no sistema  |
 | A1.1  |   ***Parar o sistema:*** <br>comando quit  |
-| A1.2  | ***Criar usuário: comando create-user <email> <senha_sem_espaços> <nome com espaços>***<br> 
+| A1.2  | ***Criar usuário: comando create-user <email> <senha_sem_espaços> <nome com espaços>***<br>
+| A2.1  | ***Desconectar do Concordo: comando disconnect < id-de-usuario-logado >***<br>
+| A2.2  | ***Criar servidores (nome): comando create-server < id-de-usuario-logado > < nome-do-servidor >***<br>
+| A2.3  | ***Listar servidores: comando list-servers < id-de-usuario-logado >***<br>
+| A2.4  | ***Remover servidor: comando remove-server < id-de-usuario-logado > < nome-do-servidor >***<br>
+| A2.5  | ***Entrar em um servidor: comando enter-server < id-de-usuario-logado > < nome-do-servidor >***<br>
+| A2.6  | ***Sair do servidor: comando leave-server < id-de-usuario-logado > < nome-do-servidor >***<br>
+| A2.7  | ***Listar pessoas no servidor: comando list-participants < id-de-usuario-logado >***<br>
