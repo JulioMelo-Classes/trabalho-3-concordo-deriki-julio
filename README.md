@@ -72,3 +72,83 @@ cmake --build . --target teste_1
 | A2.5  | ***Entrar em um servidor: comando enter-server < id-de-usuario-logado > < nome-do-servidor >***<br>
 | A2.6  | ***Sair do servidor: comando leave-server < id-de-usuario-logado > < nome-do-servidor >***<br>
 | A2.7  | ***Listar pessoas no servidor: comando list-participants < id-de-usuario-logado >***<br>
+
+## Criar usuário (Create-user)
+
+Comando o qual cadastra um usuário no sistema, com seu email, senha e usuário. O email passado deve ser único, caso contrário resultára em erro. O ID do usuário é criado automaticamente pelo sistema, começando em 1, depois 2, 3, 4, ... e assim por diante. Quando um usuário é deletado, o ID do próximo usuário criado será esse ID.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A1.2.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A1.2_OUT.txt).
+
+## Deletar um usuário (delete-user) 
+
+Deleta um usuário do sistema, passados seu email e senha, removendo-o de todos os servidores em que participa, invalidando suas mensagens e canais criados por ele. Após isso libera seu ID para o próximo usuário a ser cadastrado.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A1.3.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A1.3_OUT.txt).
+
+## Entrar no sistema (login)
+
+Verifica se o email e senha passados existem no sistema, em caso afirmativo efetua o login do usuário, armazenando a informação de que o usuário está logado no sistema, adicionando o ID dele ao vetor usuariosLogados com valores nulos de Servidor e Canal.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A1.4.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A1.4_OUT.txt).
+
+## Desconectar do Concordo (disconnect)
+
+Desconecta o usuário com o ID passado, atualizando o atributo que armazena os usuários atualmente logados. Para isso o usuário tem que estar logado no sistema, caso contrário uma mensagem de erro será mostrada.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.1.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.1_OUT.txt).
+
+## Criar servidores (create-server)
+
+Cria um servidor com o nome passado. O servidor tem como dono o usuário do ID passado. Caso o servidor já exista, uma mensagem de erro será mostrada.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.2.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.2_OUT.txt).
+
+## Listar servidores (list-servers)
+
+Exibe o nome dos servidores que o usuário com o ID passado entrou.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.3.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.3_OUT.txt).
+
+## Remover servidor (remove-server)
+
+Remove um servidor informando seu nome. Só é possível remover o servidor se o dono dele for o usuário logado, caso contrário uma mensagem de erro é mostrada. Se um usuário remove o servidor que ele está visualizando, atualiza do vetor usuariosLogados de forma que ele não esteja mais visualizando esse servidor, assim como atualiza as informações de outros usuário que estão vizualizando o servidor, fazendo com que os campos correspondentes ao Servidor e CanalTexto que estão sendo vistos recebam 0.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.4.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.4_OUT.txt).
+
+## Entrar em um servidor (enter-server) 
+
+Entra em um servidor com o nome passado e insere o ID do usuário na lista de participantes do servidor. Atualiza no vetor usuariosLogados o servidor que está sendo vizualizado para esse.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.5.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.5_OUT.txt).
+
+## Sair do servidor (leave-server)
+
+Desconecta de um servidor com o nome passado, removendo o usuário da lista de participantes desse servidor. Caso o usuário saia do servidor que ele estava vizualizando, atualiza o vetor usuariosLogados para mostrar que nenhum servidor está sendo vizualizado mais, atribuindo 0 aos campos Servidor e CanalTexto. Caso o usuário não seja membro de nenhum servidor ou não tenha entrado em nenhum, uma mensagem de erro será exibida.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.6.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.6_OUT.txt).
+
+## Listar pessoas no servidor (list-participants)
+
+Exibe todos os usuários que estão no servidor que o usuário está visualizando no momento.
+
+Para consultar as entradas dos casos de teste, [clique aqui](//data_in/A2.7.txt).
+
+E para consultar a saída esperada, [clique aqui](//data_expected/A2.7_OUT.txt).
