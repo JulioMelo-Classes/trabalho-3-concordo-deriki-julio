@@ -107,11 +107,13 @@ using namespace std;
     }
 
     string Servidores::remove_channel(CanalTexto* ct){
+        string nomeCanal;
         for(int i=0; i<this->m_canaisTexto.size();i++){
             if(this->m_canaisTexto[i]==ct){
+                nomeCanal = ct->get_nome();
                 delete ct;
                 this->m_canaisTexto.erase(this->m_canaisTexto.begin()+i);
-                return "Canal de texto " + ct->get_nome() + " deletetado.";
+                return "Canal de texto " + nomeCanal + " deletetado.";
             }
         }
         return "Error remove_channel : canal nao encontrado.";
