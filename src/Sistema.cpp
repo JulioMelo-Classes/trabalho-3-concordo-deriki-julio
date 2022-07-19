@@ -45,7 +45,9 @@ string Sistema::create_user (const string email, const string senha, const strin
 }
 
 std::string Sistema::delete_user (const std::string email, const std::string senha){
+	int idDeletado;
 	Usuario* user = find_user(email);
+	idDeletado = user->get_id();
 	if(user!=nullptr){
 		if(user->get_senha()==senha){
 			if(!user_is_logged(user->get_id())){
@@ -54,6 +56,7 @@ std::string Sistema::delete_user (const std::string email, const std::string sen
 						this->usuariosDeletados.push_back(user);
 						this->m_usuarios.erase(this->m_usuarios.begin()+i);
 						user->deletado();
+						idUserLivres.push_back(idDeletado);
 						return "Usuário " + email + " removido.";
 					}
 				}
