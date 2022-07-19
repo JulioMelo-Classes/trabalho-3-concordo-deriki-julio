@@ -301,6 +301,7 @@ string Sistema::leave_channel(int id) {
 	if(user_is_logged(id)){
 		if(this->m_usuariosLogados[id].second!=0){
 			m_usuariosLogados[id].second = 0;
+			return "Saindo do canal";
 		}
 		else return "Error leave_channel: Usuário não está visualizando nenhum canal.";
 	}
@@ -325,8 +326,10 @@ string Sistema::list_messages(int id) {
 	if(user_is_logged(id)){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
 			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
-			if(ct!=nullptr)
+			if(ct!=nullptr){
 				ct->list_messages();
+				return "";
+			}
 			else return "Error list_messages: canal nao encontrado.";
 	}
 	else return "Error list_messages: Usuário não logado.";
