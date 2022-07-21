@@ -2,9 +2,9 @@
 <h1 align="center">Concordo.cpp</h1>
 <h2 align="center"><b>Instituto Metrópole Digital, UFRN</b></h2>
 <h3 align="center">Projeto 3 - Linguagem de Programação 1<br>Implementação de um Clone do Backend do Discord, com interface textual </h3>
-<h3 align="center">Docente : Julio Melo <img width="18" src="img/email.gif"><a href="julio.melo@imd.ufrn.br">julio.melo@imd.ufrn.br</a></h3>
-<h4 align="center">Discente :  Júlio César Braga Meirelles <img width="18" src="img/email.gif"><ahref="julio.meirelles.700@ufrn.edu.br">julio.meirelles.700@ufrn.edu.br</a></h4>
-<h4 align="center">Discente :  Deriki Da Costa Pereira Cruz <img width="18" src="img/email.gif"><ahref="deriki.pereira.702@ufrn.edu.br">deriki.pereira.702@ufrn.edu.br</a></h4>
+<h3 align="center">Docente : Julio Melo <img width="18" src="img/email.gif"></h3>[julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)
+<h4 align="center">Discente :  Júlio César Braga Meirelles <img width="18" src="img/email.gif"></h4>[julio.meirelles.700@ufrn.edu.br](meilto:julio.meirelles.700@ufrn.edu.br)
+<h4 align="center">Discente :  Deriki Da Costa Pereira Cruz <img width="18" src="img/email.gif"></h4>[deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)
 </div>
 
 Sistema chamado "Concordo" com recursos similares ao Discord, mas que vai funcionar somente em modo texto e sem recursos de rede. A ideia principal é simular o “backend” de um serviço com o discord, que, embora de forma simplificada, serve para dar uma boa ideia de como as coisas são feitas nesse nicho de aplicação.
