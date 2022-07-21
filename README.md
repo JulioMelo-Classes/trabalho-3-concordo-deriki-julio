@@ -1,12 +1,19 @@
 <div align="center">
 <h1 align="center">Concordo.cpp</h1>
+<img width="300" src="img/IMD_logo.svg">
 <h2 align="center"><b>Instituto Metrópole Digital, UFRN</b></h2>
 <h3 align="center">Projeto 3 - Linguagem de Programação 1<br>Implementação de um Clone do Backend do Discord, com interface textual </h3>
 </div>
-
+<br>
+<br>
+<br>
 Sistema chamado "Concordo" com recursos similares ao Discord, mas que vai funcionar somente em modo texto e sem recursos de rede. A ideia principal é simular o “backend” de um serviço com o discord, que, embora de forma simplificada, serve para dar uma boa ideia de como as coisas são feitas nesse nicho de aplicação.
 
-O documento de especificação detalhado
+<b><i>Documento de especificação detalhado : </i></b>
+<br>
+<a href="https://docs.google.com/document/d/1s4JKwg8HbIkrsXSfakeI5a9RZs6YNnzpK_w2Jp4tbQY/edit?usp=sharing"><img width="75" src="img/google_docs.png"></a>
+<br>
+
 [google docs](https://docs.google.com/document/d/1s4JKwg8HbIkrsXSfakeI5a9RZs6YNnzpK_w2Jp4tbQY/edit?usp=sharing)
 
 ## Para compilar
@@ -158,8 +165,8 @@ Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/
 E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/A2.7_OUT.txt).
   
 ## Authorship
-**Docente: Julio Melo, [julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)**
+**Docente: Julio Melo, <img width="18" src="img/email.gif">[julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)**
 
-**Dicente: Júlio César Braga Meirelles, [julio.meirelles.700@ufrn.edu.br](mailto:julio.meirelles.700@ufrn.edu.br)**
+**Dicente: Júlio César Braga Meirelles, <img width="18" src="img/email.gif">[julio.meirelles.700@ufrn.edu.br](mailto:julio.meirelles.700@ufrn.edu.br)**
   
-**Dicente: Deriki Da Costa Pereira Cruz, [deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)**
+**Dicente: Deriki Da Costa Pereira Cruz, <img width="18" src="img/email.gif">[deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)**
