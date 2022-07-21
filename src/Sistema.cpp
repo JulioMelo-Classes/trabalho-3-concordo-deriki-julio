@@ -20,7 +20,7 @@ string Sistema::quit() {
 
 	this->usuariosDeletados.clear();
 
-	return "Saindo...";
+  return "Saindo...";
 }
 
 string Sistema::create_user (const string email, const string senha, const string nome) {
@@ -45,10 +45,8 @@ string Sistema::create_user (const string email, const string senha, const strin
 }
 
 std::string Sistema::delete_user (const std::string email, const std::string senha){
-	int idDeletado;
 	Usuario* user = find_user(email);
 	if(user!=nullptr){
-		idDeletado = user->get_id();
 		if(user->get_senha()==senha){
 			if(!user_is_logged(user->get_id())){
 				for(int i=0;i<(int)this->m_usuarios.size();i++){
@@ -56,7 +54,6 @@ std::string Sistema::delete_user (const std::string email, const std::string sen
 						this->usuariosDeletados.push_back(user);
 						this->m_usuarios.erase(this->m_usuarios.begin()+i);
 						user->deletado();
-						idUserLivres.push_back(idDeletado);
 						return "Usuário " + email + " removido.";
 					}
 				}
@@ -74,7 +71,7 @@ string Sistema::login(const string email, const string senha) {
 		if(!user_is_logged(user->get_id())){
 			if(user->get_senha()==senha){
 				this->m_usuariosLogados[user->get_id()] = {0,0};
-        		return "Logado como " + user->get_email();
+        return "Logado como " + user->get_email();
 			}
 			else return "Error login: senha inválida.";
 		}
@@ -137,90 +134,91 @@ string Sistema::remove_server(int id, const string nome) {
 	if(user_is_logged(id)){
 		Usuario* dono = find_user(id);
 		Servidores* serverRemove = find_server(nome);
-    	
-		if(serverRemove == nullptr) return "Servidor " + nome + " não encontrado";
-		
-		if(serverRemove->get_dono()==dono){
-			server_kick(serverRemove->get_id());
-			for(int i = 0; i < this->m_servidores.size();i++ ){
-				if(this->m_servidores[i]==serverRemove){
-					this->m_servidores.erase(this->m_servidores.begin()+i);
-					this->idServerLivres.push_back(serverRemove->get_id());
-					delete serverRemove;
-					return "Sucess remove_server: Server removido.";
-				}
+    if(serverRemove == nullptr){
+      return "Servidor " + nome + " não encontrado";
+    }
+	if(serverRemove->get_dono()==dono){
+		server_kick(serverRemove->get_id());
+		for(int i = 0; i < this->m_servidores.size();i++ ){
+			if(this->m_servidores[i]==serverRemove){
+				this->m_servidores.erase(this->m_servidores.begin()+i);
+				delete serverRemove;
+				return "Sucess remove_server: Server removido.";
 			}
 		}
-		return "Error remove_server: Usuário não autorizado.";
+	}
+	else return "Error remove_server: Usuário não autorizado.";
 
 	}
-	return "Error remove_server: Usuário não logado.";
+	else return "Error remove_server: Usuário não logado.";
 }
 
 string Sistema::enter_server(int id, const string nome) {
 	if(user_is_logged(id)){
 		Usuario* user = find_user(id);
 		Servidores* server = find_server(nome);
-    	
-		if(server == nullptr) return "O servidor " + nome + " não existe";
-		
+    if(server == nullptr){
+      return "O servidor " + nome + " não existe";
+    }
 		this->m_usuariosLogados[id] = {server->get_id(),0};
 
-    	bool existe;
-    	existe = false;
-    	if(m_servidoresLogados.size() > 0){
-      		for(int i = 0; i < m_servidoresLogados.size(); i++){
-        		if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
-          			existe = true;
-        		}
-      		}
-      		if(existe == false){
-        		m_servidoresLogados.push_back(make_pair(id, nome));
-      		}
-    	}else{
-      		m_servidoresLogados.push_back(make_pair(id, nome));
-    	}
+    bool existe;
+    existe = false;
+    if(m_servidoresLogados.size() > 0){
+      for(int i = 0; i < m_servidoresLogados.size(); i++){
+        if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
+          existe = true;
+        }
+      }
+      if(existe == false){
+        m_servidoresLogados.push_back(make_pair(id, nome));
+      }
+    }else{
+      m_servidoresLogados.push_back(make_pair(id, nome));
+    }
     
-		if(server->insert_participante(user)){
-			return "Entrou no servidor com sucesso, add participantes sucess";
-		}
+	if(server->insert_participante(user)){
+		return "Entrou no servidor com sucesso, add participantes sucess";
+	}
 		else return "Entrou no servidor com sucesso.";
 	}
 	return "Error enter_server: Usuário não logado.";
 }
 
 string Sistema::leave_server(int id, const string nome) {
-	
 	bool existe;
 	existe = false;
-
     if(user_is_logged(id)){
-
-    	Usuario* user = find_user(id);
+        Usuario* user = find_user(id);
         Servidores* server = find_server(nome);
-      	
-		if(server == nullptr) return "O servidor " + nome + " não existe";
+      if(server == nullptr){
+        return "O servidor " + nome + " não existe";
+      }
 
-    	if(server->remove_participante(user)){
-      		
-			for(int i = 0; i < m_servidoresLogados.size(); i++)
-        		if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome)
-          			m_servidoresLogados.erase(m_servidoresLogados.begin()+i);	
-
-		
-      		return "Saindo do servidor '"+server->get_nome()+"'";
-    	}
-    	else{
-
-        	for(int i = 0; i < m_servidoresLogados.size(); i++) 
-				if(m_servidoresLogados.at(i).first == id) 
-					existe = true;
-        	
-			if(existe == false) return "Você não está em qualquer servidor";
-			else return "Você não está nesse servidor.";
-      	}
+    if(server->remove_participante(user)){
+      for(int i = 0; i < m_servidoresLogados.size(); i++){
+        if(m_servidoresLogados.at(i).first == id && m_servidoresLogados.at(i).second == nome){
+          m_servidoresLogados.erase(m_servidoresLogados.begin()+i);
+        }
+      }
+      return "Saindo do servidor '"+server->get_nome()+"'";
     }
-  	else return "Error leave_server: Usuário não logado.";
+      else{
+        for(int i = 0; i < m_servidoresLogados.size(); i++){
+      		if(m_servidoresLogados.at(i).first == id){
+      			existe = true;
+      		}
+	      }
+        if(existe == false){
+          return "Você não está em qualquer servidor";
+        } else {
+          return "Você não está nesse servidor.";
+        }
+      }
+      }
+  else {
+    return "Error leave_server: Usuário não logado.";
+    }
 }
 
 string Sistema::list_participants(int id) {
@@ -275,7 +273,7 @@ string Sistema::remove_channel(int id, const string nome) {
 				}
 				else return "Você não é dono do canal ou do servidor.";
 			}
-			else return "Canal de texto '"+ nome + "' não existe!";
+			else return "Canal de texto '"+ nome + "'não existe!";
 		}
 		else return "Error remove_channel: server não encontrado.";		
 	}
@@ -290,7 +288,7 @@ string Sistema::enter_channel(int id, const string nome) {
 			CanalTexto* ct=serverVisualizado->find_channel(nome);
 			if(ct!=nullptr){
 				this->m_usuariosLogados[id].second = ct->get_id();
-				return "Entrou no canal '" + nome +"'.";
+				return "Entrou no canal '" + nome +"'. id: " + to_string(ct->get_id());
 			}
 			else return "Canal '" +nome + "' não existe.";
 		}
@@ -303,7 +301,6 @@ string Sistema::leave_channel(int id) {
 	if(user_is_logged(id)){
 		if(this->m_usuariosLogados[id].second!=0){
 			m_usuariosLogados[id].second = 0;
-			return "Saindo do canal";
 		}
 		else return "Error leave_channel: Usuário não está visualizando nenhum canal.";
 	}
@@ -313,16 +310,13 @@ string Sistema::leave_channel(int id) {
 string Sistema::send_message(int id, const string mensagem) {
 	if(user_is_logged(id)){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
-			if(server == nullptr){
-				return "Error send_message: Servidor não encontrado.";
-			}
 			Usuario* user = find_user(id);
 			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
 			if(ct!=nullptr){
 				ct->create_message(user,mensagem);
 				return "Success: mensagem gravada.";
 			}
-			else return "Error send_message: Canal de texto não encontrado.";
+			else return "Error send_menssage: Canal de texto não encontrado.";
 	}
 	else return "Error send_message: Usuário não logado.";
 }
@@ -330,11 +324,12 @@ string Sistema::send_message(int id, const string mensagem) {
 string Sistema::list_messages(int id) {
 	if(user_is_logged(id)){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
-			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
-			if(ct!=nullptr){
-				ct->list_messages();
-				return "";
+			if(server == nullptr){
+				return "Servidor não encontrado."
 			}
+			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
+			if(ct!=nullptr)
+				ct->list_messages();
 			else return "Error list_messages: canal nao encontrado.";
 	}
 	else return "Error list_messages: Usuário não logado.";
