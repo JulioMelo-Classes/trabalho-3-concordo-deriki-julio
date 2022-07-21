@@ -2,11 +2,14 @@
 <h1 align="center">Concordo.cpp</h1>
 <h2 align="center"><b>Instituto Metrópole Digital, UFRN</b></h2>
 <h3 align="center">Projeto 3 - Linguagem de Programação 1<br>Implementação de um Clone do Backend do Discord, com interface textual </h3>
-<h3 align="center">Docente : Julio Melo <img width="18" src="img/email.gif"></h3>[julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)
-<h4 align="center">Discente :  Júlio César Braga Meirelles <img width="18" src="img/email.gif"></h4>[julio.meirelles.700@ufrn.edu.br](meilto:julio.meirelles.700@ufrn.edu.br)
-<h4 align="center">Discente :  Deriki Da Costa Pereira Cruz <img width="18" src="img/email.gif"></h4>[deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)
+<h3 align="center">Docente : Julio Melo <img width="18" src="img/email.gif"></h3>
+<h4 align="center">Discente :  Júlio César Braga Meirelles <img width="18" src="img/email.gif"></h4>
+<h4 align="center">Discente :  Deriki Da Costa Pereira Cruz <img width="18" src="img/email.gif"></h4>
 </div>
 
+[julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)
+[julio.meirelles.700@ufrn.edu.br](meilto:julio.meirelles.700@ufrn.edu.br)
+[deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)
 Sistema chamado "Concordo" com recursos similares ao Discord, mas que vai funcionar somente em modo texto e sem recursos de rede. A ideia principal é simular o “backend” de um serviço com o discord, que, embora de forma simplificada, serve para dar uma boa ideia de como as coisas são feitas nesse nicho de aplicação.
 
 O documento de especificação detalhado
@@ -159,3 +162,10 @@ Exibe todos os usuários que estão no servidor que o usuário está visualizand
 Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/A2.7.txt).
 
 E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/A2.7_OUT.txt).
+  
+## Authorship
+**Docente: Julio Melo, [julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)**
+
+**Dicente: Júlio César Braga Meirelles, [julio.meirelles.700@ufrn.edu.br](mailto:julio.meirelles.700@ufrn.edu.br)**
+  
+**Dicente: Deriki Da Costa Pereira Cruz, [deriki.pereira.702@ufrn.edu.br](mailto:deriki.pereira.702@ufrn.edu.br)**
