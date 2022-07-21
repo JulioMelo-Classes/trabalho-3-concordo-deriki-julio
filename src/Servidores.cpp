@@ -113,7 +113,7 @@ using namespace std;
                 nomeCanal = ct->get_nome();
                 delete ct;
                 this->m_canaisTexto.erase(this->m_canaisTexto.begin()+i);
-                return "Canal de texto " + nomeCanal + " deletetado.";
+                return "Canal de texto " + nomeCanal + " deletado.";
             }
         }
         return "Error remove_channel : canal nao encontrado.";

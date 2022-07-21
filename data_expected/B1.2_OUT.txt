@@ -1,0 +1,13 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+servidor servidor criado
+servidor servidor2 criado
+Entrou no servidor com sucesso.
+Canal canal1 criado.
+Entrou no servidor com sucesso.
+Canal canal2 criado.
+Error create_channel: Canal de texto canal1 já existe!
+Error create_channel: Canal de texto canal2 já existe!
+Saindo...

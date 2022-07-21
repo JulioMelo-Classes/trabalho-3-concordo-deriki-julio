@@ -1,0 +1,35 @@
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+login jim_carrey@gmail.com 4NokFuIZ
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+login martin_freeman@gmail.com 8DcXQq8D
+create-server 1 servidor
+create-server 2 servidor2
+
+# SUCESS
+enter-server 1 servidor
+create-channel 1 canal1
+enter-channel 1 canal1
+enter-server 2 servidor2
+create-channel 2 canal2
+enter-channel 2 canal2
+enter-server 1 servidor2
+enter-channel 1 canal2
+send-message 1 Oi pessoal
+send-message 2 Oi, tudo bem?
+
+# 1 ERROR: Usuário nao logado
+
+create-user email@email.com senha Fulano
+send-message 3 Oie
+
+# 2 ERROR: Usuário nao entrou em nenhum servidor
+
+login email@email.com senha
+send-message 3 Oie
+
+# 3 ERROR: Usuário nao entrou em nenhum canal
+
+enter-server 3 servidor2
+send-message 3 Oie
+
+quit

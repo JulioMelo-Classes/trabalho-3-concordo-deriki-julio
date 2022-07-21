@@ -47,8 +47,8 @@ string Sistema::create_user (const string email, const string senha, const strin
 std::string Sistema::delete_user (const std::string email, const std::string senha){
 	int idDeletado;
 	Usuario* user = find_user(email);
-	idDeletado = user->get_id();
 	if(user!=nullptr){
+		idDeletado = user->get_id();
 		if(user->get_senha()==senha){
 			if(!user_is_logged(user->get_id())){
 				for(int i=0;i<(int)this->m_usuarios.size();i++){
@@ -276,7 +276,7 @@ string Sistema::remove_channel(int id, const string nome) {
 				}
 				else return "Você não é dono do canal ou do servidor.";
 			}
-			else return "Canal de texto '"+ nome + "'não existe!";
+			else return "Canal de texto '"+ nome + "' não existe!";
 		}
 		else return "Error remove_channel: server não encontrado.";		
 	}
@@ -291,7 +291,7 @@ string Sistema::enter_channel(int id, const string nome) {
 			CanalTexto* ct=serverVisualizado->find_channel(nome);
 			if(ct!=nullptr){
 				this->m_usuariosLogados[id].second = ct->get_id();
-				return "Entrou no canal '" + nome +"'. id: " + to_string(ct->get_id());
+				return "Entrou no canal '" + nome +"'.";
 			}
 			else return "Canal '" +nome + "' não existe.";
 		}
@@ -314,13 +314,16 @@ string Sistema::leave_channel(int id) {
 string Sistema::send_message(int id, const string mensagem) {
 	if(user_is_logged(id)){
 			Servidores* server = find_server(this->m_usuariosLogados[id].first);
+			if(server == nullptr){
+				return "Error send_message: Servidor não encontrado.";
+			}
 			Usuario* user = find_user(id);
 			CanalTexto* ct = server->find_channel(this->m_usuariosLogados[id].second);
 			if(ct!=nullptr){
 				ct->create_message(user,mensagem);
 				return "Success: mensagem gravada.";
 			}
-			else return "Error send_menssage: Canal de texto não encontrado.";
+			else return "Error send_message: Canal de texto não encontrado.";
 	}
 	else return "Error send_message: Usuário não logado.";
 }

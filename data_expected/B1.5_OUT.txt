@@ -1,0 +1,27 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+servidor servidor criado
+servidor servidor2 criado
+Entrou no servidor com sucesso.
+Canal canal1 criado.
+Entrou no canal 'canal1'.
+Entrou no servidor com sucesso.
+Canal canal2 criado.
+Entrou no canal 'canal2'.
+Canal canalTexto criado.
+Canal de texto canalTexto deletado.
+Canal canalVoz criado.
+Canal de texto canalVoz deletado.
+Canal de texto 'canalInexistente' não existe!
+Canal de texto 'canalInfinito' não existe!
+Entrou no servidor com sucesso, add participantes sucess
+Você não é dono do canal ou do servidor.
+Entrou no servidor com sucesso, add participantes sucess
+Você não é dono do canal ou do servidor.
+Usuário Fulano criado.
+Error remove_channel: Usuário não logado.
+Logado como email@email.com
+Error remove_channel: server não encontrado.
+Saindo...

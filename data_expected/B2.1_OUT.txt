@@ -1,0 +1,23 @@
+Usuário Jim Carrey criado.
+Logado como jim_carrey@gmail.com
+Usuário Martin Freeman criado.
+Logado como martin_freeman@gmail.com
+servidor servidor criado
+servidor servidor2 criado
+Entrou no servidor com sucesso.
+Canal canal1 criado.
+Entrou no canal 'canal1'.
+Entrou no servidor com sucesso.
+Canal canal2 criado.
+Entrou no canal 'canal2'.
+Entrou no servidor com sucesso, add participantes sucess
+Entrou no canal 'canal2'.
+Success: mensagem gravada.
+Success: mensagem gravada.
+Usuário Fulano criado.
+Error send_message: Usuário não logado.
+Logado como email@email.com
+Error send_message: Servidor não encontrado.
+Entrou no servidor com sucesso, add participantes sucess
+Error send_message: Canal de texto não encontrado.
+Saindo...

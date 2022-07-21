@@ -1,0 +1,22 @@
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+login jim_carrey@gmail.com 4NokFuIZ
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+login martin_freeman@gmail.com 8DcXQq8D
+create-server 1 servidor
+create-server 2 servidor2
+
+# SUCESS
+enter-server 1 servidor
+create-channel 1 canal1
+enter-channel 1 canal1
+enter-server 2 servidor2
+create-channel 2 canal2
+enter-channel 2 canal2
+enter-server 1 servidor2
+enter-channel 1 canal2
+list-messages 1
+list-messages 2
+
+
+
+quit
