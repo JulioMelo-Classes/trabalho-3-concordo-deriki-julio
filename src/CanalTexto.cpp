@@ -49,6 +49,7 @@ using namespace std;
         
         std::time_t t = std::chrono::system_clock::to_time_t(today);
         std::string ts = std::ctime(&t);
+        ts.pop_back();
         if(this->idMensagemLivres.size() == 0){
             Mensagem* msg = new Mensagem(nextIdMensagem,ts,user,mensagem);
             this->m_mensagens.push_back(msg);

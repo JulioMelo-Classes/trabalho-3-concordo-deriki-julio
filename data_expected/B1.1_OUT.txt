@@ -10,6 +10,7 @@ Entrou no servidor com sucesso, add participantes sucess
 Canal canalVoz criado.
 Entrou no canal 'canalTexto'.
 Entrou no canal 'canalTexto'.
+#canais de texto
 canalTexto
 canalVoz
 Saindo...

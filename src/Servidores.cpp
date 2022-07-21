@@ -41,6 +41,7 @@ using namespace std;
     }
 
     void Servidores::list_channels(){
+        cout<<"#canais de texto"<<endl;
         if(this->m_canaisTexto.size()==0){
             cout<<"servidor sem canal de texto."<<endl;
         }

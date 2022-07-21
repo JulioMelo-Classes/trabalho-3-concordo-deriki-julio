@@ -1,0 +1,240 @@
+
+# A1.2 CRIAR USUARIO
+## SUCCESS 
+### criar 10 usuarios para usar em tests de execucao e 4 para tests de usuarios deletados depois criando + 4 usuarios
+
+create-user deletado@hotmail.com 12345 Deletado
+create-user jim_carrey@gmail.com 4NokFuIZ Jim Carrey
+create-user martin_freeman@gmail.com 8DcXQq8D Martin Freeman
+create-user kubla_khan@aol.com 805aoPWh Kumbla
+create-user jake_gyllenhaal@zohomail.com 3jUV3JbV Jake
+create-user bradley_cooper@aol.com 8cIb0R9I Bradley
+create-user hammurabi@hotmail.com 3UhwB5VD Hammurabi
+create-user deletado1@hotmail.com 12345 Deletado1
+create-user deletado2@hotmail.com 12345 Deletado2
+create-user vladimir_putin@yandex.com 0SaoyMb0 Vladimir Putin
+create-user nelson_mandela@yandex.com 1mpuvWRm Nelson Mandela
+create-user wil_wheaton@outlook.com 1RmFUarS Wil Wheaton
+create-user deletado3@hotmail.com 12345 Deletado3
+create-user katherine_heigl@outlook.com 7t4cOp9c Katherine Heigl
+
+## ERROR : usuário existente
+### deverá ser realizada checagem se o usuário já existe e uma mensagem de retorno apropriada deve ser adicionada.
+create-user jake_gyllenhaal@zohomail.com 3jUV3JbV Jake
+create-user bradley_cooper@aol.com 8cIb0R9I Bradley
+create-user hammurabi@hotmail.com 3UhwB5VD Hammurabi
+
+
+
+# A1.3 DELETAR USUARIO
+## SUCCESS
+delete-user deletado@hotmail.com 12345
+delete-user deletado1@hotmail.com 12345
+delete-user deletado2@hotmail.com 12345
+delete-user deletado3@hotmail.com 12345
+
+## ERROR : usuario n existe
+delete-user deletado3@hotmail.com 12345
+delete-user deletado1@hotmail.com 12345
+
+## ERROR 2 : usuario não pode esta logado.
+login hammurabi@hotmail.com 3UhwB5VD
+delete-user hammurabi@hotmail.com 3UhwB5VD
+disconnect 7
+
+
+
+# +4 USUARIOS INCREMENTADOS PARA TESTAR PREENCHIMENTO DE IDS REMOVIDOS
+create-user usuario@hotmail.com 1234 Usuario
+create-user usuario1@hotmail.com 1234 Usuario1
+create-user usuario2@hotmail.com 1234 Usuario2
+create-user usuario3@hotmail.com 1234 Usuario3
+
+## TESTE PARA VALIDAR IDS { 1 , 8 , 9 , 13 } se foram atribuidos pro meio de login e disconnect
+login usuario@hotmail.com 1234
+disconnect 1
+login usuario1@hotmail.com 1234
+disconnect 8
+login usuario2@hotmail.com 1234
+disconnect 9
+login usuario3@hotmail.com 1234
+disconnect 13
+
+
+
+
+# A1.4 ENTRAR NO SISTEMA
+## SUCCESS
+### carregando todos os 14 usuarios para proximos testes de sistema
+
+login usuario@hotmail.com 1234
+login usuario2@hotmail.com 1234
+login usuario1@hotmail.com 1234
+login usuario3@hotmail.com 1234
+login jim_carrey@gmail.com 4NokFuIZ
+login martin_freeman@gmail.com 8DcXQq8D
+login kubla_khan@aol.com 805aoPWh
+login jake_gyllenhaal@zohomail.com 3jUV3JbV
+login bradley_cooper@aol.com 8cIb0R9I
+login hammurabi@hotmail.com 3UhwB5VD
+login vladimir_putin@yandex.com 0SaoyMb0
+login nelson_mandela@yandex.com 1mpuvWRm
+login wil_wheaton@outlook.com 1RmFUarS
+login katherine_heigl@outlook.com 7t4cOp9c
+
+## ERROR : usuario nao criado
+login emailinvalido@gmail.com 1234
+
+## ERROR 2 : usuario ja logado
+login usuario1@hotmail.com 1234
+
+## ERROR 3 : senha invalida 
+disconnect 1
+login usuario@hotmail.com senhaErrada
+login usuario@hotmail.com 1234
+
+
+
+# A2.1 DESCONECTAR DO CONCORDO
+##SUCCESS
+disconnect 1
+disconnect 4
+
+##ERROR : usuario nao logado
+disconnect 1
+disconnect 4
+
+##LOGANDO NOVAMENTE
+login usuario@hotmail.com 1234
+login kubla_khan@aol.com 805aoPWh
+
+
+
+# A2.2 CRIAR SERVIDORES
+##SUCCESS
+create-server 1 Usuario-server
+create-server 2 Jim_Carrey_server
+create-server 1 Usuario-server2
+create-server 8 Usuario1-server
+create-server 10 Vladimir_server
+
+##ERROR : se o servidor já existe
+
+create-server 3 Usuario-server2
+create-server 5 Jim_Carrey_server
+
+
+
+# A2.3 Listar servidores
+enter-server 2 Usuario-server2
+enter-server 2 Vladimir_server
+list-servers 2
+leave-server 2 Vladimir_server
+list-servers 2
+leave-server 2 Usuario-server2
+
+
+
+# A2.4 Remover servidor
+## SUCCESS
+create-server 1 servidorParaDeletar
+remove-server 1 servidorParaDeletar
+
+## ERROR : servidor existe?
+remove-server 1 servidorNaoExiste
+
+## ERROR : usuario dono ?
+create-server 1 testeDonoDel
+remove-server 2 testeDonoDel
+remove-server 1 testeDonoDel
+
+
+
+# A2.5 e A2.6 Entrar e Sair do servidor
+## SUCCESS 
+enter-server 2 Usuario-server
+enter-server 13 Usuario-server
+enter-server 1 Jim_Carrey_server
+enter-server 1 Usuario1-server
+leave-server 1 Jim_Carrey_server
+
+## leave usuario nao esta no server
+leave-server 4 Jim_Carrey_server
+
+
+
+# A2.7 Listar pessoas no servidor
+## SUCCESS
+create-server 3 Server8maisDono
+enter-server 1 Server8maisDono
+enter-server 2 Server8maisDono
+enter-server 6 Server8maisDono
+enter-server 8 Server8maisDono
+enter-server 9 Server8maisDono
+enter-server 5 Server8maisDono
+enter-server 10 Server8maisDono
+enter-server 13 Server8maisDono
+list-participants 1
+
+
+
+# B1.1 Listar canais do servidor e B1.2 Criar canal 
+## SUCCESS usaremos o servidor criado a cima Server8maisDono
+create-channel 1 Canal-Usuario
+create-channel 6 Canal-Brandley
+create-channel 9 Canal-Usuario2
+create-channel 5 Canal-Jake
+create-channel 2 Canal-Jim-Carrey
+list-channels 2
+
+## ERROR : TENTATIVA CRIAR CANAL JA existente
+create-channel 13 Canal-Usuario
+
+
+
+# B1.3 Entrar em um canal e B1.4 sair de um canal
+## SUCCESS usaremos o servidor criado Server8maisDono
+enter-channel 13 Canal-Usuario
+enter-channel 1 Canal-Usuario
+enter-channel 6 Canal-Usuario
+enter-channel 8 Canal-Usuario
+enter-channel 5 Canal-Usuario
+leave-channel 13 Canal-Usuario
+leave-channel 1 Canal-Usuario
+leave-channel 6 Canal-Usuario
+leave-channel 8 Canal-Usuario
+leave-channel 5 Canal-Usuario
+
+## ERROR checagem se o canal existe
+enter-channel 1 Canal-Not-Found
+
+
+
+# B2.1 Enviar msg e B2.2 Listar msgs
+## SUCESS usaremos o servidor criado Server8maisDono
+enter-channel 13 Canal-Usuario
+enter-channel 1 Canal-Usuario
+enter-channel 6 Canal-Usuario
+enter-channel 8 Canal-Usuario
+enter-channel 5 Canal-Usuario
+
+### mensagem de lista vazia
+list-messages 6
+
+### mandando msgs
+send-message 6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo velit in turpis gravida, quis gravida magna fringilla. Proin eu mauris in ante bibendum luctus ut ac magna. Nullam finibus nec enim et lacinia.
+send-message 13 Sed efficitur nulla nibh, in semper nisl blandit quis. Aenean sagittis tempus ante. Sed egestas sem ac accumsan lacinia. Morbi aliquam blandit lacinia.
+send-message 1 Aliquam at porta dolor. Sed quis felis at sapien auctor finibus ac cursus sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+send-message 8 Phasellus at hendrerit arcu, non malesuada urna. Mauris mauris magna, feugiat at lobortis nec, vulputate ac elit. Nunc rutrum tellus sapien, ac vehicula lectus tempor eget.
+send-message 5 Curabitur placerat facilisis sem ut placerat. Nullam urna purus, ullamcorper eget sapien eget, gravida tristique turpis. In hac habitasse platea dictumst.
+list-messages 6
+
+
+## TORNANDO AO REMOVER USUARIOS Q MANDARAM MENSAGENS OU SAO DONOS DE canais
+### deletando Usuario1
+disconnect 8
+delete-user usuario1@hotmail.com 1234
+list-messages 6
+
+# A1.1 SAINDO
+quit
