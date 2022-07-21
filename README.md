@@ -1,6 +1,6 @@
 <div align="center">
+<a href="https://www.metropoledigital.ufrn.br/portal/"><img width="323" src="img/IMD_logo.svg"></a>
 <h1 align="center">Concordo.cpp</h1>
-<img width="300" src="img/IMD_logo.svg">
 <h2 align="center"><b>Instituto Metrópole Digital, UFRN</b></h2>
 <h3 align="center">Projeto 3 - Linguagem de Programação 1<br>Implementação de um Clone do Backend do Discord, com interface textual </h3>
 </div>
