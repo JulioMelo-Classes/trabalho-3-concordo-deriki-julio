@@ -69,6 +69,15 @@ Após os passos em [Para compilar](#para-compilar)
 cmake --build . --target teste_1
 ```
 
+## Teste geral
+
+Caso queira executar o teste geral digite:
+
+```console
+cd build
+./concordo < ../data/script_teste_generico.txt
+```
+
 ## testes
 
 | **Teste**  | **Descrição**  |
@@ -134,7 +143,7 @@ E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-C
 
 ## Remover servidor (remove-server)
 
-Remove um servidor informando seu nome. Só é possível remover o servidor se o dono dele for o usuário logado, caso contrário uma mensagem de erro é mostrada. Se um usuário remove o servidor que ele está visualizando, atualiza do vetor usuariosLogados de forma que ele não esteja mais visualizando esse servidor, assim como atualiza as informações de outros usuário que estão vizualizando o servidor, fazendo com que os campos correspondentes ao Servidor e CanalTexto que estão sendo vistos recebam 0.
+Remove um servidor informando seu nome. Só é possível remover o servidor se o dono dele for o usuário logado, caso contrário uma mensagem de erro é mostrada. Se um usuário remove o servidor que ele está visualizando, atualiza do vetor usuariosLogados de forma que ele não esteja mais visualizando esse servidor, assim como atualiza as informações de outros usuário que estão visualizando o servidor, fazendo com que os campos correspondentes ao Servidor e CanalTexto que estão sendo vistos recebam 0.
 
 Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/A2.4.txt).
 
@@ -142,7 +151,7 @@ E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-C
 
 ## Entrar em um servidor (enter-server)
 
-Entra em um servidor com o nome passado e insere o ID do usuário na lista de participantes do servidor. Atualiza no vetor usuariosLogados o servidor que está sendo vizualizado para esse.
+Entra em um servidor com o nome passado e insere o ID do usuário na lista de participantes do servidor. Atualiza no vetor usuariosLogados o servidor que está sendo visualizado para esse.
 
 Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/A2.5.txt).
 
@@ -150,7 +159,7 @@ E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-C
 
 ## Sair do servidor (leave-server)
 
-Desconecta de um servidor com o nome passado, removendo o usuário da lista de participantes desse servidor. Caso o usuário saia do servidor que ele estava vizualizando, atualiza o vetor usuariosLogados para mostrar que nenhum servidor está sendo vizualizado mais, atribuindo 0 aos campos Servidor e CanalTexto. Caso o usuário não seja membro de nenhum servidor ou não tenha entrado em nenhum, uma mensagem de erro será exibida.
+Desconecta de um servidor com o nome passado, removendo o usuário da lista de participantes desse servidor. Caso o usuário saia do servidor que ele estava visualizando, atualiza o vetor usuariosLogados para mostrar que nenhum servidor está sendo visualizado mais, atribuindo 0 aos campos Servidor e CanalTexto. Caso o usuário não seja membro de nenhum servidor ou não tenha entrado em nenhum, uma mensagem de erro será exibida.
 
 Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/A2.6.txt).
 
@@ -163,6 +172,63 @@ Exibe todos os usuários que estão no servidor que o usuário está visualizand
 Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/A2.7.txt).
 
 E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/A2.7_OUT.txt).
+
+## Listar canais do servidor (list-channels)
+
+Exibe todos os canais do servidor que o usuário está visualizando no momento.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B1.1.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B1.1_OUT.txt).
+
+## Criar um canal do servidor (create-channel)
+
+Cria um canal, com o nome fornecido, no servidor que o usuário está visualizando. Caso o canal no servidor já exista, uma mensagem de erro será exibida.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B1.2.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B1.2_OUT.txt).
+
+## Entrar em um canal (enter-channel)
+
+Entra em um canal presente na lista de canais do servidor que o usuário está visualizando. Quando um usuário entra em um canal, o sistema atualiza no vetor usuariosLogados o canal que o usuário está visualizando para esse em que acabou de entrar. Se o usuário tentar entrar em um canal que não existe, uma mensagem de erro será exibida.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B1.3.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B1.3_OUT.txt).
+
+## Sair de um canal (leave-channel)
+
+Sai do canal que o usuário está visualizando no momento, atualizando o vetor usuarioLogados para indicar que nenhum canal mais está sendo visualizado por ele. Caso o usuário tente sair de um canal em que ele faz parte ou não exista, uma mensagem de erro será mostrada.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B1.4.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B1.4_OUT.txt).
+
+## Remover um canal do servidor (remove-channel)
+
+Deleta um canal no servidor que está sendo visualizado pelo usuário informando seu nome. Em caso de um usuário estar visualizando um canal removido, atualiza a tabela para indicar que ele não está vendo mais canal algum, atribuindo 0 aos campos correspondentes ao Servidor e CanalTexto que estão sendo visualizados. Se o usuário tentar remover um canal que não exista ou que não é dono, uma mensagem de erro será exibida na tela.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B1.5.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B1.5_OUT.txt).
+
+## Enviar mensagem para o canal (send-message)
+
+Cria uma mensagem com o conteúdo digitado, a data/hora atual e com o atributo enviadaPor com o ID do usuário recebido no comando, e adiciona na lista de mensagens do canal visualizado pelo usuário passado.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B2.1.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B2.1_OUT.txt).
+
+## Visualizar mensagens do canal (list-messages)
+
+Mostra as mensagens de um canal que está sendo visualizado pelo usuário, assim como o nome do usuário que criou a mensagem e a data/hora da criação da mensagem. Caso o usuário tente visualizar as mensagens de um servidor em que ele não esteja vendo ou que não exista, uma mensagem de erro será exibida.
+
+Para consultar as entradas dos casos de teste, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_in/B2.2.txt).
+
+E para consultar a saída esperada, [clique aqui](https://github.com/JulioMelo-Classes/trabalho-3-concordo-deriki-julio/blob/main/data_expected/B2.2_OUT.txt).
+
   
 ## Authorship
 **Docente: Julio Melo, <img width="18" src="img/email.gif">[julio@imd.ufrn.br](mailto:julio@imd.ufrn.br)**
