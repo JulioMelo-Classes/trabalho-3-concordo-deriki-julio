@@ -16,6 +16,47 @@ Sistema chamado "Concordo" com recursos similares ao Discord, mas que vai funcio
 
 [google docs](https://docs.google.com/document/d/1s4JKwg8HbIkrsXSfakeI5a9RZs6YNnzpK_w2Jp4tbQY/edit?usp=sharing)
 
+## Avaliação
+
+### Geral
+- G1. Implementação e Uso das Classes Especificadas | 10/10 pontos
+
+- G2. Implementação das funcionalidades relacionadas em A1 | 5/5 pontos
+	- G2.1 Implementação deste conjunto de funcionalidades | 2/2 pontos
+	- G2.2 Implementação dos testes deste conjunto de funcionalidades | 3/3 pontos
+    - Observação: Embora esteja tudo funcionando, eu realmente não entendi o motivo da m_servidoresLogados.
+
+- G3. Implementação das funcionalidades relacionadas em A2 | 10/10 pontos
+	- G3.1 Implementação deste conjunto de funcionalidades | 5/5 pontos
+	- G3.2 Implementação dos testes deste conjunto de funcionalidades | 5/5 pontos
+
+- G4. Implementação das funcionalidades relacionadas em B1 | 5/5 pontos
+	- G4.1 Implementação deste conjunto de funcionalidades | 2/2 pontos
+	- G4.2 Implementação dos testes deste conjunto de funcionalidades | 3/3 pontos
+
+- G5. Implementação das funcionalidades relacionadas em B2 | 5/5 pontos
+	- G5.1 Implementação deste conjunto de funcionalidades | 2/2 pontos
+	- G5.2 Implementação dos testes deste conjunto de funcionalidades | 3/3 pontos
+
+- G6. Implementação de testes de integração que testam várias funcionalidades em um único conjunto de testes | 10/10 pontos
+	- G6.1 Teste login de mais de 5 usuarios e envio/listagem de mensagens de cada um de mensagens pelos 3/3 pontos
+	- G6.2 Teste de criação de canais por mais de um usuário e envio de mensagem em cada um deles 3/3 pontos
+	- G6.3 Teste de todos os A1 até B2 em um único arquivo. 4/4 pontos
+    - Observação: Aqui eu esperava um arquivo diferente para cada G6.x, mas acabou ficando tudo incluso em (script_teste_generico)[./data/script_teste_generico.txt]
+
+### Código
+- C1. Readme 10 | 10 pontos
+	- Documente quais testes foram implementados e quais funcionalidades estão mostradas em cada um deles
+	
+- C2. Documentação, organização e indentação do código (obrigatório) -2 / -5
+	- Este item é obrigatório, caso você entregue o trabalho sem ele você perde 5 pontos.
+    - Observação, nem os atributos e nem os retornos estão documentados corretamente.
+
+- C3. Compilação automatizada (obrigatória) 0 / -5
+	- Este item é obrigatório, caso você entregue o trabalho sem ele você perde 5 pontos.
+
+
+
 ## Para compilar
 
 ```console
